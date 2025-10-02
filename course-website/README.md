@@ -13,7 +13,7 @@ npm install
 npm run dev
 ```
 
-The router uses the `/copilot-analyst-lab-john` basename for GitHub Pages. Update `BrowserRouter` and `vite.config.ts` if you deploy to a different path.
+The router uses the `/genai-analyst-accelerator` basename for GitHub Pages. Update `BrowserRouter` and `vite.config.ts` if you deploy to a different path.
 
 ## Project Structure
 

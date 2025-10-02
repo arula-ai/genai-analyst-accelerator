@@ -34,10 +34,10 @@ function App() {
                   GenAI Analyst Accelerator
                 </h1>
                 <p className="text-xs sm:text-sm text-[#4b5a63] dark:text-[#9fb1ba] hidden sm:block">
-                  Build confident, responsible automation skills
+                  Build confident, responsible automation skills (analyst-first, no coding required)
                 </p>
                 <p className="text-[11px] text-[#1D2E38] dark:text-[#f6f8f9] sm:hidden">
-                  Two 75-minute live sessions + 2h homework path
+                  Two 75-minute live labs + 2h homework (analyst focus)
                 </p>
               </div>
             </Link>
@@ -51,7 +51,7 @@ function App() {
             <Link to="/" className={navLinkClass('/')}>Home</Link>
             <Link to="/setup" className={navLinkClass('/setup')}>Setup</Link>
             <Link to="/modules" className={navLinkClass('/modules')}>
-              Modules
+              Labs
             </Link>
             <Link to="/resources" className={navLinkClass('/resources')}>
               Resources

@@ -14,7 +14,6 @@ Complete this checklist before joining the GenAI Analyst Accelerator. It ensures
 - [ ] **IDE installed** (VS Code 1.80+, JetBrains 2023.1+, or equivalent)
 - [ ] **Git configured** with your corporate identity
 - [ ] **Markdown preview working** (open any `.md` file and confirm rendered view)
-- [ ] **Python 3.10+** (needed for Module 4 optional exercises)
 
 ## Copilot / Chat Configuration
 

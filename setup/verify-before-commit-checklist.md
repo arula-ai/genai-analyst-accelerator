@@ -316,7 +316,7 @@ If yes to any, refine before committing.
 ## Additional Resources
 
 - **Prompt Clarity Blueprint:** [resources/prompt-clarity-blueprint.md](../resources/prompt-clarity-blueprint.md)
-- **Narrative Storytelling Playbook:** [resources/insight-storytelling-playbook.md](../resources/insight-storytelling-playbook.md)
+- **Narrative Storytelling Playbook (Archived):** [course-website/_archive/insight-storytelling-playbook.md](../course-website/_archive/insight-storytelling-playbook.md)
 - **Governance Guidelines:** [../SECURITY.md](../SECURITY.md)
 - **Accuracy Register Template:** [course-website/governance/accuracy-register-template.csv](../course-website/governance/accuracy-register-template.csv)
 

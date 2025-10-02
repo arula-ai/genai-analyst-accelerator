@@ -1,9 +1,10 @@
-# Modern Implementation Workspace
+# Requirements Workspace (Analyst Artifacts)
 
-Use this folder for:
+Use this folder for analyst artifacts only—no code:
 
-- Python refactor(s) of the legacy job
-- Unit tests referencing fixtures
-- Documentation summarising decisions and risks
+- Business-logic summary (plain English)
+- Data & batch flow map (tables or Mermaid)
+- Requirements package (fields, rules, acceptance criteria)
+- SME question log and risk/assumption register
 
 See `../README.md` for objectives and the change-control log requirements.

@@ -6,7 +6,7 @@ import App from './App.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/copilot-analyst-lab-john">
+    <BrowserRouter basename="/genai-analyst-accelerator">
       <App />
     </BrowserRouter>
   </StrictMode>,

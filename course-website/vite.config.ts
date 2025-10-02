@@ -5,7 +5,7 @@ import path from 'path'
 
 // https://vite.dev/config/
 export default defineConfig({
-  base: '/copilot-analyst-lab-john/',
+  base: '/genai-analyst-accelerator/',
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {

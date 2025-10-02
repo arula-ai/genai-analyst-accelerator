@@ -418,7 +418,7 @@ const supportHighlights: SupportHighlight[] = [
     description: 'Use the 2-hour homework circuit (four 30-minute sprints) to cement the skills where your teams need them most.',
     bullets: [
       'Run prompt diagnostics on your own datasets in 30-minute bursts',
-      'Draft exec-ready stories from current dashboards with evidence logs',
+      'Refine business-logic narratives and traceability notes for stakeholders',
       'Refine modernization and governance artefacts before the next release',
     ],
     to: '/homework',

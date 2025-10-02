@@ -33,6 +33,11 @@ import module2Scorecard from '@content/modules/module-2-automation/scorecards/au
 import module4Readme from '@content/modules/module-4-legacy-modernization/README.md?raw';
 import module4ChangeLog from '@content/modules/module-4-legacy-modernization/templates/change-control-log.md?raw';
 import module4Cobol from '@content/modules/module-4-legacy-modernization/legacy/interest-adjustment.cbl?raw';
+import businessLogicSummaryTemplate from '@content/resources/templates/business-logic-summary.md?raw';
+import dataFlowMapTemplate from '@content/resources/templates/data-flow-map.md?raw';
+import smeQuestionLogTemplate from '@content/resources/templates/sme-question-log.md?raw';
+import requirementsPackageTemplate from '@content/resources/templates/requirements-package.md?raw';
+import jclAnalystPrimer from '@content/resources/jcl-analyst-primer.md?raw';
 
 import module5Readme from '@content/modules/module-5-governance/README.md?raw';
 import module5Template from '@content/modules/module-5-governance/templates/hallucination-report.md?raw';
@@ -232,80 +237,86 @@ const modules: CourseModule[] = [
   {
     id: 'module-4',
     order: 'Module 4',
-    title: 'Legacy Logic Analysis & Data Mapping',
+    title: 'Legacy Business Logic & Data Flow Analysis (Analyst Track)',
     status: 'Critical',
-    duration: '30 minutes (3 x 10-minute tasks)',
-    focus: 'Business logic discovery, data flow tracing, and analyst-ready modernization prep',
+    duration: '75 minutes (2 x 10-minute sprint loops + reviews)',
+    focus:
+      'Reverse-engineer COBOL + JCL into plain-language business rules, map batch data flows, and assemble analyst-ready requirements packages—no refactoring required.',
     description:
-      'Pair Copilot Chat with legacy artifacts to document business rules, map data movement, and assemble a data requirements package engineers can build from.',
+      'Work through two analyst labs: first deconstruct the COBOL and JCL to explain business logic and batch orchestration, then synthesize the findings into a requirements package with SME questions, risks, and acceptance criteria for engineering intake.',
     keySkills: [
       'Translate COBOL routines into plain-language business rules and decision points',
-      'Trace upstream/downstream data dependencies and record them in mapping templates',
-      'Capture assumptions, gaps, and owner follow-ups inside a data requirements package',
-      'Coordinate with partners to align modernization outcomes without writing the replacement code yourself',
+      'Read JCL to map job steps, datasets, and upstream/downstream dependencies',
+      'Capture data requirements, acceptance criteria, and risks in analyst templates aligned to ISO/IEC/IEEE 29148',
+      'Log SME follow-ups and governance evidence without generating or refactoring code',
     ],
-    copilotSurfaces: ['Copilot Chat in VS Code', 'Copilot PR Review on GitHub.com'],
-    slashCommands: ['/explain', '#codebase cobol_src/interest-adjustment.cbl', '/doc', '@workspace module4_modernization/golden_dataset'],
+    copilotSurfaces: ['Copilot Chat in VS Code'],
+    slashCommands: ['/explain', '/doc', '@workspace legacy-cobol-jcl-sample', '#codebase governance/accuracy-register-template.csv'],
     contextCues: [
-      'Reference cobol_src/interest-adjustment.cbl with #codebase when prompting for walkthroughs',
-      'Point Copilot at module4_modernization/golden_dataset/ and legacy-cobol-jcl-sample/ to reason about data structures and job context',
-      'Store findings in the change-control log and data requirements template so engineers see analyst context',
+      'Reference legacy-cobol-jcl-sample/jcl/INTADJ01.jcl with @workspace before mapping batch steps',
+      'Anchor prompts to the business-logic summary and data-flow templates so outputs stay structured for analysts',
+      'Record risks, assumptions, and SME follow-ups in the change-control log and question log for governance review',
     ],
     lab: {
-      name: 'Legacy Logic Discovery Lab',
+      name: 'Legacy Business Logic & Requirements Labs',
       scenario:
-        'Start with the Open Mainframe Project interest-adjustment COBOL sample, document the business logic, map data flow, and assemble a stakeholder-ready data requirements package.',
+        'Lab 1: Deconstruct the COBOL + JCL interest-adjustment job to explain the business logic and data/batch flows. Lab 2: Turn the findings into a requirements package with acceptance criteria, SME questions, and governance notes.',
       deliverables: [
-        'Plain-language walkthrough covering inputs, calculations, decision branches, and outputs',
-        'Data flow map that captures upstream/downstream systems, tables, and transformation notes',
-        'Data requirements package listing fields, quality rules, ownership, and open questions',
-        'Change-control log entries summarizing risks, mitigations, and stakeholder follow-ups',
-        'Optional Copilot PR Review summary highlighting analyst findings for engineering partners',
+        'Business-logic summary capturing inputs, decisions, calculations, and outputs in plain language',
+        'Data & batch flow map documenting steps, datasets, and read/write usage across the job',
+        'Requirements package with functional rules, data definitions, acceptance criteria, and open questions',
+        'SME question log with owners, due dates, and risk if unanswered',
+        'Change-control log updates aligning risks, approvals, and governance evidence',
       ],
       prompts: [
-        'Discovery: /explain cobol_src/interest-adjustment.cbl with an emphasis on business outcomes and hidden assumptions',
-        'Mapping: Ask Copilot to draft a data flow table referencing @workspace module4_modernization/golden_dataset/sample_transactions.csv',
-        'Documentation: Use /doc to build the data requirements package and call out risks plus SME questions',
+        'Explain this COBOL program in business terms; list inputs, decisions, calculations, outputs, and uncertainties. Cite file and line references.',
+        'Read INTADJ01.jcl and map each step: program, PROC, datasets, whether they are read or written, and downstream consumers.',
+        'Draft a requirements package using the provided template, including acceptance criteria and risk/assumption notes.',
+        'Propose SME follow-up questions for ambiguous fields or logic and log them in the question register.',
       ],
       validation: [
-        'Cross-check mapped fields against the golden dataset to ensure calculations align with expected outputs',
-        'Review assumptions and gaps with a peer or SME before finalizing the package',
-        'Ensure change-control log references risk ratings, mitigations, and approval status',
+        'Review business-logic and data-flow outputs with a peer to confirm accuracy before sharing',
+        'Log unresolved questions and risks in the SME register plus the accuracy register for traceability',
+        'Ensure the requirements package lists acceptance criteria and links to evidence sources before handoff',
       ],
     },
     rubric: [
-      'Business logic summary conveys decisions, inputs, and outputs without relying on code snippets',
-      'Data flow map traces dependencies, sources, and consumers with ownership identified',
-      'Data requirements package lists fields, quality rules, and outstanding questions with clear actions',
+      'Business-logic summary traces each decision to inputs, outputs, and evidence references',
+      'Data & batch flow map captures step order, datasets, and read/write intent tied to JCL evidence',
+      'Requirements package lists fields, acceptance criteria, risks, and SME follow-ups aligned to governance expectations',
     ],
     metricsFocus: [
-      'Time-to-first-complete data requirements draft',
-      'Number of dependencies identified before engineering handoff',
-      'Parity or quality issues flagged from legacy analysis prior to modernization',
+      'Time-to-first complete business-logic summary',
+      'Open questions resolved before engineering intake',
+      'Governance evidence logged alongside requirements artifacts',
     ],
     trackFit: ['Session 1 · Foundations & Legacy Discovery', 'Session 2 · Data Requirements & Governance'],
     assets: [
-      'Open Mainframe COBOL sample under module4_modernization/cobol_src/',
-      'Analyst-ready COBOL + JCL repo template in legacy-cobol-jcl-sample/',
-      'Data flow and requirements templates in the accelerator package',
-      'Change-control log template detailed below',
-      'Legacy Modernization Field Guide with governance tips',
+      'COBOL + JCL samples in the legacy-cobol-jcl-sample repository',
+      'Business-logic summary, data-flow map, SME question log, and requirements package templates',
+      'Change-control log template for risk and approval tracking',
+      'JCL primer for analysts explaining job orchestration context',
     ],
     readinessSignals: [
-      '□ Business logic walkthrough captures inputs, decision points, and outputs in plain language',
-      '□ Data flow map lists systems, tables, and handoffs with owners identified',
-      '□ Data requirements package highlights gaps, risks, and mitigation plans for partners',
+      '□ Business-logic summary captures inputs, decision points, calculations, and outputs with references',
+      '□ Data & batch flow map lists steps, datasets, and owners with upstream/downstream context',
+      '□ Requirements package highlights risks, assumptions, and SME follow-ups with traceability to governance logs',
     ],
     stretchIdeas: [
-      'Interview a domain SME and incorporate their insights into the requirements package',
-      'Compare multiple COBOL jobs to spot shared dependencies and consolidation opportunities',
-      'Pilot the documentation flow on a live modernization backlog item after the lab',
+      'Interview a domain SME to validate assumptions and enrich acceptance criteria',
+      'Compare multiple COBOL jobs to spot shared datasets or conflicting logic across the batch schedule',
+      'Pilot the documentation flow on an in-flight modernization backlog item and capture lessons learned',
     ],
     content: {
       readme: module4Readme,
       files: [
         { name: 'COBOL Source Example (interest-adjustment.cbl)', content: module4Cobol },
-        { name: 'Change Control Log', content: module4ChangeLog },
+        { name: 'Business-Logic Summary Template', content: businessLogicSummaryTemplate },
+        { name: 'Data & Batch Flow Map Template', content: dataFlowMapTemplate },
+        { name: 'SME Question Log Template', content: smeQuestionLogTemplate },
+        { name: 'Requirements Package Template', content: requirementsPackageTemplate },
+        { name: 'Change-Control Log Template', content: module4ChangeLog },
+        { name: 'JCL Primer for Analysts', content: jclAnalystPrimer },
       ],
     },
   },
@@ -400,10 +411,10 @@ export default function ModulesPage() {
   return (
     <div className="container mx-auto px-4 py-10 max-w-7xl">
       <div className="mb-12 space-y-4 text-center">
-        <Badge className="bg-[#FF930F] text-white">Curriculum Blueprint</Badge>
-        <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Module Playbooks</h1>
+        <Badge className="bg-[#FF930F] text-white">Lab Blueprint</Badge>
+        <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Lab Playbooks</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-          Each module combines prompt scaffolds, hands-on labs, and review rituals paced for two 75-minute live sessions plus self-paced homework. Scroll through the modules to see skills, 10-minute sprint tasks, and the evidence you must capture.
+          Each lab combines prompt scaffolds, analyst walkthroughs, and review rituals paced for two 75-minute live sessions plus self-paced homework. Scroll through the labs to see skills, 10-minute sprint tasks, and the evidence you must capture.
         </p>
       </div>
 
@@ -411,7 +422,7 @@ export default function ModulesPage() {
         <CardHeader className="space-y-3 text-center">
           <CardTitle className="text-2xl text-slate-900 dark:text-white">How to Use This Page</CardTitle>
           <CardDescription className="text-slate-600 dark:text-slate-300">
-            Click a module to jump to its section. Each block outlines skills, labs, validation steps, and readiness signals, plus the Copilot surface, 10-minute sprint tasks, slash commands to rehearse, and evidence artifacts to capture.
+            Click a lab to jump to its section. Each block outlines focus skills, sprint loops, validation steps, and readiness signals, plus the Copilot surface, 10-minute sprint prompts, and evidence artifacts to capture.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap justify-center gap-2 text-sm">

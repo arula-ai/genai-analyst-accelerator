@@ -30,6 +30,11 @@ import devcontainerGuide from '@content/resources/devcontainer-quickstart.md?raw
 import measurementPlaybook from '@content/resources/measurement-playbook.md?raw';
 import trustCenterBriefing from '@content/resources/trust-center-briefing.md?raw';
 import legacyDataMappingToolkit from '@content/resources/legacy-data-mapping-toolkit.md?raw';
+import jclAnalystPrimer from '@content/resources/jcl-analyst-primer.md?raw';
+import businessLogicSummaryTemplate from '@content/resources/templates/business-logic-summary.md?raw';
+import dataFlowMapTemplate from '@content/resources/templates/data-flow-map.md?raw';
+import smeQuestionLogTemplate from '@content/resources/templates/sme-question-log.md?raw';
+import requirementsPackageTemplate from '@content/resources/templates/requirements-package.md?raw';
 
 const resources = [
   {
@@ -41,7 +46,7 @@ const resources = [
     accent: 'bg-[#FF930F]/10 text-[#FF930F] dark:text-[#FFD2A1] dark:bg-[#FF930F]/20',
     keyTopics: [
       'License confirmation for Copilot or approved GenAI tools',
-      'IDE setup, markdown preview, and optional Python install',
+      'IDE setup, markdown preview, and Copilot Chat configured—no local runtimes required',
       'Governance readiness: guardrails, evidence capture, escalation points',
     ],
     readTime: '5 min read',
@@ -94,9 +99,9 @@ const resources = [
   },
   {
     id: 'devcontainer-quickstart',
-    title: 'Codespaces Devcontainer Guide',
-    subtitle: 'Prebuilt environment with Python, DuckDB, SQLFluff, and Copilot CLI',
-    description: 'Launch the accelerator in GitHub Codespaces with every dependency preinstalled and governance hooks ready.',
+    title: 'Codespaces Devcontainer Guide (Optional)',
+    subtitle: 'Optional developer-track workspace with Python, DuckDB, SQLFluff, and Copilot CLI',
+    description: 'For teams running the developer accelerator track, launch GitHub Codespaces with every dependency preinstalled and governance hooks ready. Analyst track participants do not need this environment.',
     icon: Server,
     accent: 'bg-[#E3FCEC] text-[#1E7B4D] dark:text-[#9BE3B3] dark:bg-[#123524]',
     keyTopics: [
@@ -121,6 +126,81 @@ const resources = [
     ],
     readTime: '5 min briefing',
     content: trustCenterBriefing,
+  },
+  {
+    id: 'jcl-analyst-primer',
+    title: 'JCL Primer for Analysts',
+    subtitle: 'Decode batch orchestration to support legacy discovery',
+    description: 'Quick orientation to JCL constructs—jobs, steps, PROCs, and datasets—so analysts can map data movement without touching production systems.',
+    icon: Workflow,
+    accent: 'bg-[#FFE7D0] text-[#CC6E00] dark:text-[#FFD2A1] dark:bg-[#3b2713]',
+    keyTopics: [
+      'How JCL sequences steps and invokes COBOL programs',
+      'Reading DD statements to capture dataset read/write intent',
+      'Linking JCL steps to analyst data-flow maps and requirements docs',
+    ],
+    readTime: '4 min read',
+    content: jclAnalystPrimer,
+  },
+  {
+    id: 'business-logic-summary-template',
+    title: 'Business-Logic Summary Template',
+    subtitle: 'Structure plain-language walkthroughs of COBOL jobs',
+    description: 'Capture inputs, decisions, calculations, and outputs with evidence references so SMEs can validate logic quickly.',
+    icon: ClipboardList,
+    accent: 'bg-[#FF930F]/10 text-[#FF930F] dark:text-[#FFD2A1] dark:bg-[#FF930F]/20',
+    keyTopics: [
+      'Tabular inputs and outputs with lineage columns',
+      'Decision and calculation catalog with uncertainty notes',
+      'Reusable headings that align to modernization intake expectations',
+    ],
+    readTime: '2 min template',
+    content: businessLogicSummaryTemplate,
+  },
+  {
+    id: 'data-flow-map-template',
+    title: 'Data & Batch Flow Map Template',
+    subtitle: 'Document job steps, datasets, and transformations',
+    description: 'Analyst-friendly tables for mapping JCL steps to COBOL routines, highlighting read/write intent and downstream consumers.',
+    icon: Workflow,
+    accent: 'bg-[#DDEBFF] text-[#1E3A8A] dark:text-[#A6C4FF] dark:bg-[#1f2f4a]',
+    keyTopics: [
+      'Step → program → dataset tracing with notes',
+      'Field catalog capturing definitions and transformations',
+      'Callouts reminding analysts to tie maps to requirements packages',
+    ],
+    readTime: '2 min template',
+    content: dataFlowMapTemplate,
+  },
+  {
+    id: 'sme-question-log-template',
+    title: 'SME Question Log Template',
+    subtitle: 'Track open questions, owners, and risk impact',
+    description: 'Simple register for coordinating SME follow-ups so analyst findings stay actionable and governance-ready.',
+    icon: MessageCircle,
+    accent: 'bg-[#E3FCEC] text-[#1E7B4D] dark:text-[#9BE3B3] dark:bg-[#123524]',
+    keyTopics: [
+      'Unique IDs tied to artifacts (COBOL line, JCL step)',
+      'Owner and due date tracking for SME responses',
+      'Risk if unanswered to prioritize escalations',
+    ],
+    readTime: '1 min template',
+    content: smeQuestionLogTemplate,
+  },
+  {
+    id: 'requirements-package-template',
+    title: 'Requirements Package Template',
+    subtitle: 'ISO/IEC/IEEE 29148-style structure for analyst deliverables',
+    description: 'Organize scope, stakeholders, functional rules, data requirements, and risks for modernization intake without writing code.',
+    icon: FileText,
+    accent: 'bg-[#FFE0B8] text-[#B86505] dark:text-[#FFCE94] dark:bg-[#2e1f0f]',
+    keyTopics: [
+      'Scope, actors, and functional requirement sections',
+      'Data requirement catalog aligned to the flow map template',
+      'Risk, assumption, and SME follow-up tracking for governance',
+    ],
+    readTime: '3 min template',
+    content: requirementsPackageTemplate,
   },
   {
     id: 'prompt-clarity-blueprint',
@@ -200,13 +280,13 @@ const resources = [
   {
     id: 'legacy-modernization-field-guide',
     title: 'Legacy Modernization Field Guide',
-    subtitle: 'Explain COBOL, JCL, and stored procedures before co-creating modern code',
-    description: 'Decomposition worksheets, modernization prompts, and risk logs made for analysts partnering with engineers.',
+    subtitle: 'Explain COBOL, JCL, and stored procedures for analyst-led discovery',
+    description: 'Decomposition worksheets, analyst prompts, and governance logs to translate legacy workloads into business logic and data flows before engineers refactor.',
     icon: Cog,
     accent: 'bg-[#2fa87c]/10 text-[#187054] dark:bg-[#2fa87c]/20 dark:text-[#88d4b9]',
     keyTopics: [
-      'Legacy walkthrough prompt that captures job flow, data, and dependencies',
-      'Python and SQL migration prompts with rollback guidance',
+      'Legacy walkthrough prompts that capture job flow, data, and dependencies',
+      'Business-rule translation frames for COBOL without generating new code',
       'Change-control checklist that satisfies auditors and release managers',
     ],
     readTime: '16 min read',
