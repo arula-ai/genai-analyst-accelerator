@@ -32,6 +32,7 @@ Complete this checklist before joining the GenAI Analyst Accelerator. It ensures
 
 - [ ] Synthetic dataset downloaded (`module-1-prompt-engineering/datasets/`)
 - [ ] COBOL sample accessible (`module-4-legacy-modernization/legacy/`)
+- [ ] COBOL + JCL repo available (`legacy-cobol-jcl-sample/` or published clone)
 - [ ] Automation assets copied (`module-2-automation/` – optional)
 
 ## Environment Verification

@@ -10,8 +10,8 @@ Transform your discovery notes into a stakeholder-ready data requirements packag
 
 ## Assets
 
-- Legacy sample: `accelerator/module4_modernization/cobol_src/interest-adjustment.cbl`
-- Golden dataset: `accelerator/module4_modernization/golden_dataset/sample_transactions.csv`
+- Legacy sample: `accelerator/module4_modernization/cobol_src/interest-adjustment.cbl` (short-code trading log)
+- Reference data: `legacy-cobol-jcl-sample/data/TRLOG.DAT` and `accelerator/module4_modernization/golden_dataset/sample_transactions.csv`
 - Requirements template (start from the change-control log + your own mapping outputs)
 
 ## Deliverables

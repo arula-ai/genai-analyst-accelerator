@@ -5,10 +5,10 @@ This folder contains a self-contained COBOL + JCL sample you can publish as a st
 ## Contents
 
 ```
-cobol/                   Interest-adjustment COBOL program (batch)
-copybooks/               Copybook defining the account record layout
-jcl/                     Sample JCL job to compile and execute the program
-data/                    Synthetic VSAM-style flat file used by the job
+cobol/                   Trade delta COBOL program (batch)
+copybooks/               Copybook exposing short-code trade fields
+jcl/                     Sample JCL job to compile and execute the short-code program
+data/                    Synthetic trade log with short coded fields
 docs/training-runbook.md Analyst-facing walkthrough and prompts
 ```
 
@@ -24,7 +24,7 @@ docs/training-runbook.md Analyst-facing walkthrough and prompts
 ## Suggested Training Flow
 
 1. **Explain the program** – Use `/explain` on `cobol/interest-adjustment.cbl` to capture business logic (inputs, decisions, outputs).
-2. **Map data flow** – Review `copybooks/ACCOUNT-RECORD.cpy` and `data/ACCOUNTS.DAT` to trace lineage and transformation steps.
+2. **Map data flow** – Review `copybooks/TRMAP.cpy` and `data/TRLOG.DAT` to trace lineage and transformation steps.
 3. **Draft requirements** – Translate findings into the data requirements package outlined in `docs/training-runbook.md`.
 4. **Governance alignment** – Log risks and SME questions in your change-control or data requirements templates.
 

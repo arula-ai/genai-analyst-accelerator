@@ -3,7 +3,7 @@
 Use this guide to drive Module 4 exercises with the COBOL + JCL sample.
 
 ## 1. Prep (5 minutes)
-- Open `cobol/interest-adjustment.cbl` and `copybooks/ACCOUNT-RECORD.cpy`.
+- Open `cobol/interest-adjustment.cbl` and `copybooks/TRMAP.cpy` (note the short field codes like TID/BUID/ASCD).
 - Skim `jcl/INTADJ01.jcl` to understand how the job is orchestrated.
 - Confirm learners know where to log findings (data requirements template, SME question log).
 

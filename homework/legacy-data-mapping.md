@@ -6,13 +6,13 @@
 
 ## Goal
 
-Document the business logic embedded in the legacy interest-adjustment program, trace data movement, and capture questions for subject-matter experts.
+Document the business logic embedded in the short-code trading log program, trace data movement, and capture questions for subject-matter experts step-by-step.
 
 ## Assets
 
-- Legacy sample: `accelerator/module4_modernization/cobol_src/interest-adjustment.cbl`
-- Golden dataset: `accelerator/module4_modernization/golden_dataset/sample_transactions.csv`
-- Change-control log template: `accelerator/module4_modernization/logs/change-control-log.md`
+- Legacy sample: `accelerator/module4_modernization/cobol_src/interest-adjustment.cbl` (mirrors `legacy-cobol-jcl-sample/cobol/interest-adjustment.cbl`)
+- Trade log: `legacy-cobol-jcl-sample/data/TRLOG.DAT` or your mapped dataset
+- Change-control log template: `accelerator/module4_modernization/logs/change-control-log.md` (log short-code field interpretations)
 
 ## Deliverables
 
