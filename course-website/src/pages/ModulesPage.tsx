@@ -79,7 +79,7 @@ const modules: CourseModule[] = [
     order: 'Module 1',
     title: 'Prompt Engineering Essentials',
     status: 'Core',
-    duration: '30 minutes',
+    duration: '30 minutes (3 x 10-minute tasks)',
     focus: 'Copilot prompt scaffolds, DuckDB validation, and SQL linting discipline',
     description:
       'Within 30 minutes, teams restate analytical requirements with Copilot Chat, ground SQL in metadata via @workspace, and verify outputs locally in DuckDB with SQLFluff enforcing lint gates.',
@@ -159,7 +159,7 @@ const modules: CourseModule[] = [
     order: 'Module 2',
     title: 'Automating Everyday Data Tasks',
     status: 'Optional',
-    duration: '50 minutes (optional track)',
+    duration: '30 minutes (optional homework sprints)',
     focus: 'Copilot CLI automation with governance guardrails and PR review rituals',
     description:
       'Build a weekly margin refresh script with Copilot CLI, keep changes auditable through dry-run logs, and lean on Copilot PR Review to summarize diffs while secret scanning and OIDC keep credentials safe.',
@@ -237,7 +237,7 @@ const modules: CourseModule[] = [
     order: 'Module 3',
     title: 'Insight Generation & Storytelling',
     status: 'Critical',
-    duration: '65 minutes',
+    duration: '30 minutes (3 x 10-minute tasks)',
     focus: 'Canonical Power BI storytelling with fact-check loops and OWASP drills',
     description:
       'Ground narratives in canonical Power BI visuals while Copilot documents source references, runs OWASP hallucination drills, and drives quick numeric rebuilds in Excel or DuckDB.',
@@ -315,7 +315,7 @@ const modules: CourseModule[] = [
     order: 'Module 4',
     title: 'Legacy Code Decomposition & Modernization',
     status: 'Critical',
-    duration: '90 minutes',
+    duration: '30 minutes (3 x 10-minute tasks)',
     focus: 'Open Mainframe COBOL decomposition, parity testing, and ISO/IEC-aligned risk logs',
     description:
       'Pair Copilot Chat, Copilot CLI, and Copilot PR Review to translate Open Mainframe COBOL samples into modern Python with golden dataset parity tests and governance-ready risk briefings.',
@@ -394,7 +394,7 @@ const modules: CourseModule[] = [
     order: 'Module 5',
     title: 'Governance & Accuracy Fundamentals',
     status: 'Core',
-    duration: '45 minutes (40 in deep-dive wrap)',
+    duration: '30 minutes (3 x 10-minute tasks)',
     focus: 'NIST-aligned governance, OWASP prompt-injection drills, and transparency practices',
     description:
       'Codify the accuracy operating model by mapping artifacts to NIST AI RMF and Generative AI Profile controls, running prompt-injection drills, and standardizing transparency notes.',
@@ -483,7 +483,7 @@ export default function ModulesPage() {
         <Badge className="bg-[#FF930F] text-white">Curriculum Blueprint</Badge>
         <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Module Playbooks</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl mx-auto">
-          Each module combines prompt scaffolds, hands-on labs, and review rituals. All content is displayed directly below - scroll through each module to access everything you need.
+          Each module combines prompt scaffolds, hands-on labs, and review rituals paced for two 75-minute live sessions plus self-paced homework. Scroll through the modules to see skills, 10-minute sprint tasks, and the evidence you must capture.
         </p>
       </div>
 
@@ -491,7 +491,7 @@ export default function ModulesPage() {
         <CardHeader className="space-y-3 text-center">
           <CardTitle className="text-2xl text-slate-900 dark:text-white">How to Use This Page</CardTitle>
           <CardDescription className="text-slate-600 dark:text-slate-300">
-            Click a module to jump to its section. Each block outlines skills, labs, validation steps, and the readiness signals you should see before moving on. You will also find the Copilot surface to launch (Chat, PR Review, or CLI), the slash commands to rehearse, and the evidence artifacts you must capture.
+            Click a module to jump to its section. Each block outlines skills, labs, validation steps, and readiness signals, plus the Copilot surface, 10-minute sprint tasks, slash commands to rehearse, and evidence artifacts to capture.
           </CardDescription>
         </CardHeader>
         <CardContent className="flex flex-wrap justify-center gap-2 text-sm">
@@ -740,33 +740,33 @@ export default function ModulesPage() {
         <CardHeader className="space-y-3 text-center">
           <CardTitle className="text-2xl text-slate-900 dark:text-white">Cadence Recommendations</CardTitle>
           <CardDescription className="text-slate-600 dark:text-slate-300">
-            Blend modules to match team maturity. Use Module 2 for teams eager to automate, or double down on Module 5 if governance is still forming.
+            Plan the two 75-minute live sessions and the two-hour homework circuit using these quick references.
           </CardDescription>
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 lg:grid-cols-3 text-sm text-slate-600 dark:text-slate-300">
             <div className="border border-dashed border-[#FF930F]/40 rounded-lg p-4">
               <h3 className="font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                <RefreshCw className="w-4 h-4 text-[#FF930F]" /> Core Accelerator Runbook
+                <RefreshCw className="w-4 h-4 text-[#FF930F]" /> Session 1 · Foundations & Storytelling
               </h3>
               <p>
-                Run Modules 1, 3, and 5 in 2.5 hours. Emphasize Copilot Chat prompts, DuckDB validation, OWASP drills, and transparency notes. Capture time-to-first-query and narrative citation metrics before closing.
+                75-minute live block made of seven 10-minute sprints: Module 1 prompt framing, DuckDB validation, SQLFluff fixes, then Module 3 visual grounding, narrative drafting, and evidence logging. Close with metrics + homework preview.
               </p>
             </div>
             <div className="border border-dashed border-[#FF930F]/40 rounded-lg p-4">
               <h3 className="font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                <Lightbulb className="w-4 h-4 text-[#FF930F]" /> Modernization Deep Dive
+                <Lightbulb className="w-4 h-4 text-[#FF930F]" /> Session 2 · Modernization & Governance
               </h3>
               <p>
-                Pair Modules 1, 4, and 5 with a live Copilot PR review cycle. Expect golden dataset parity evidence, ISO/IEC risk logs, and modernization metrics (PR cycle time, parity defects) before graduation.
+                Second 75-minute block keeps the 10-minute cadence: Module 4 COBOL walkthrough, Python refactor scaffold, parity tests, then Module 5 incident triage, NIST/ISO crosswalk, and transparency planning. Finish with session metrics and next steps.
               </p>
             </div>
             <div className="border border-dashed border-[#FF930F]/40 rounded-lg p-4">
               <h3 className="font-semibold text-slate-900 dark:text-white mb-2 flex items-center gap-2">
-                <Workflow className="w-4 h-4 text-[#FF930F]" /> Automation Track Swap
+                <Workflow className="w-4 h-4 text-[#FF930F]" /> Homework Circuit · 120 Minutes
               </h3>
               <p>
-                Swap Module 3 for Module 2 when automation is the priority. Require Copilot CLI dry-runs, PR review summaries, and secret-scanning proof before rejoining the governance lab.
+                Four self-paced 30-minute sprints: prompt diagnostics, storytelling remix, modernization mini-refactor, and accuracy audit. Use them to reinforce modules or assign as catch-up work between cohorts.
               </p>
             </div>
           </div>

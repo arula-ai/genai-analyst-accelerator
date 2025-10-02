@@ -141,164 +141,159 @@ const quickStartSteps = [
 
 const runbooks: Runbook[] = [
   {
-    id: 'core-accelerator',
-    name: 'Core Accelerator',
-    duration: '2.5 hours',
+    id: 'session-1',
+    name: 'Session 1 · Foundations & Storytelling',
+    duration: '75 minutes (7 x 10-minute tasks + flex)',
     summary:
-      'Trimmed agenda that aligns to mandatory adoption outcomes. Focus on prompt engineering, insight generation, and governance foundations with short transitions between modules.',
+      'Launch with Module 1 prompt discipline and Module 3 storytelling accuracy using back-to-back 10-minute micro-sprints.',
     modules: [
       {
         id: 'module-1',
         name: 'Module 1 · Prompt Engineering Essentials',
-        time: '30 min',
+        time: '30 min (3 x 10)',
         surface: 'Copilot Chat in VS Code',
         commands: ['/explain', '@workspace data_dictionary.md', '/tests'],
-        focus: 'Reframe the task, ground the model in metadata, and generate validation checks.',
+        focus: 'Frame prompts, validate SQL in DuckDB, and address SQLFluff findings with Copilot.',
       },
       {
         id: 'module-3',
         name: 'Module 3 · Insight Generation & Storytelling',
-        time: '65 min',
+        time: '30 min (3 x 10)',
         surface: 'Copilot Chat in VS Code',
         commands: ['/explain', '/doc', '@workspace powerbi_samples'],
-        focus: 'Translate canonical visuals into executive-ready narratives with citations.',
-      },
-      {
-        id: 'module-5',
-        name: 'Module 5 · Governance & Accuracy Fundamentals',
-        time: '45 min',
-        surface: 'Copilot Chat in VS Code + Accuracy Register template',
-        commands: ['/explain', '/fix', '#codebase accuracy_register.csv'],
-        focus: 'Run hallucination drills and capture evidence before escalation.',
+        focus: 'Ground visuals, draft cited narratives, and update the evidence table in real time.',
       },
     ],
     extras: [
       {
-        time: '5 min',
-        description: 'Transition & quick validation capture between Modules 1 and 3.',
-      },
-      {
-        time: '5 min',
-        description: 'Break & rubric check before Module 5.',
+        time: '10 min (2 x 5)',
+        description: 'Micro-breaks and evidence logging between sprint blocks.',
       },
     ],
     timeline: [
       {
-        label: 'Module 1 · Prompt Engineering Essentials',
-        duration: '30 min',
-        detail: 'Copilot Chat in VS Code · /explain, @workspace data_dictionary.md, /tests',
+        label: 'Kickoff & guardrails reset',
+        duration: '10 min',
+        detail: 'Reintroduce synthetic-data rules, assign roles, and surface success metrics.',
       },
       {
-        label: 'Transition & evidence capture',
-        duration: '5 min',
-        detail: 'Log SQL validation counts, bias notes, and rubric checkpoints.',
+        label: 'Module 1 · Prompt storyboard',
+        duration: '10 min',
+        detail: 'Run /explain with @workspace data_dictionary.md to restate the analyst ask.',
       },
       {
-        label: 'Module 3 · Insight Generation & Storytelling',
-        duration: '65 min',
-        detail: 'Copilot Chat in VS Code · /explain, /doc, @workspace powerbi_samples',
+        label: 'Module 1 · DuckDB validation sprint',
+        duration: '10 min',
+        detail: 'Execute /tests for validation queries and log counts in validation_log.csv.',
       },
       {
-        label: 'Break & rubric check',
-        duration: '5 min',
-        detail: 'Review storytelling rubric, capture evidence table screenshots.',
+        label: 'Module 1 · SQLFluff fix loop',
+        duration: '10 min',
+        detail: 'Use /fix to remediate lint feedback and capture revisions in the README trail.',
       },
       {
-        label: 'Module 5 · Governance & Accuracy Fundamentals',
-        duration: '45 min',
-        detail: 'Copilot Chat in VS Code · /explain, /fix, #codebase accuracy_register.csv',
+        label: 'Module 3 · Visual grounding',
+        duration: '10 min',
+        detail: 'Paste chart filters, title, and window into chat before asking for narrative support.',
+      },
+      {
+        label: 'Module 3 · Copilot narrative draft',
+        duration: '10 min',
+        detail: 'Use /doc to produce briefing paragraphs with citations to @workspace powerbi_samples.',
+      },
+      {
+        label: 'Module 3 · Evidence table update',
+        duration: '10 min',
+        detail: 'Log KPI rebuild results in evidence_table.csv and assign reviewer initials.',
+      },
+      {
+        label: 'Wrap & homework preview',
+        duration: '10 min',
+        detail: 'Share blockers, note session metrics, and assign 2-hour homework checkpoints (aim to finish in 5).',
       },
     ],
     outcomes: [
-      'Completes M1, M3, and M5 rubrics with documented evidence attachments.',
-      'Captures baseline metrics: time-to-first-working-query, Copilot acceptance rate.',
-      'Publishes validation artifacts to the shared accuracy register before graduation.',
+      'Module 1 prompts, SQLFluff report, and validation log captured for later review.',
+      'Module 3 briefing drafted with citations, KPI rebuild screenshot, and reviewer notes.',
+      'Session metrics recorded (time-to-first-query, citation coverage, issues to monitor).',
     ],
   },
   {
-    id: 'modernization-deep-dive',
-    name: 'Modernization Deep Dive',
-    duration: '4 hours',
+    id: 'session-2',
+    name: 'Session 2 · Modernization & Governance',
+    duration: '75 minutes (7 x 10-minute tasks + flex)',
     summary:
-      'Half-day option for teams ready to modernize legacy code. Adds deeper COBOL decomposition, parity testing, and PR governance rituals.',
+      'Shift to Module 4 modernization parity tests and Module 5 governance drills with the same 10-minute cadence.',
     modules: [
-      {
-        id: 'module-1',
-        name: 'Module 1 · Prompt Engineering Essentials',
-        time: '30 min',
-        surface: 'Copilot Chat in VS Code',
-        commands: ['/explain', '@workspace data_dictionary.md', '/tests'],
-        focus: 'Rehearse grounded prompting to prepare legacy code walk-throughs.',
-      },
       {
         id: 'module-4',
         name: 'Module 4 · Legacy Code Decomposition & Modernization',
-        time: '90 min',
-        surface: 'Copilot Chat in VS Code + Copilot CLI',
+        time: '30 min (3 x 10)',
+        surface: 'Copilot Chat in VS Code + Copilot PR Review',
         commands: ['/explain', '/tests', '#codebase cobol_src/interest-adjustment.cbl'],
-        focus: 'Explain COBOL, scaffold Python parity, and configure golden dataset tests.',
+        focus: 'Explain COBOL logic, scaffold Python refactors, and prep parity harnesses.',
       },
       {
         id: 'module-5',
         name: 'Module 5 · Governance & Accuracy Fundamentals',
-        time: '40 min',
-        surface: 'Copilot Chat in VS Code + Governance templates',
-        commands: ['/explain', '/doc', '#codebase hallucination_report.md'],
-        focus: 'Tie modernization artifacts to governance evidence and escalation paths.',
+        time: '30 min (3 x 10)',
+        surface: 'Copilot Chat in VS Code',
+        commands: ['/explain', '/doc', '#codebase accuracy_register.csv'],
+        focus: 'Run incident drills, map evidence to NIST/ISO controls, and draft escalation packets.',
       },
     ],
     extras: [
       {
-        time: '50 min',
-        description: 'Live refactor review & parity testing with Copilot PR Review on GitHub.com.',
-        surface: 'Copilot PR Review',
-        commands: ['Ask Copilot about this diff', '/summary', '/fix'],
-      },
-      {
-        time: '20 min',
-        description: 'Debrief, metric reporting, and rubric calibration with stakeholders.',
-      },
-      {
-        time: '10 min',
-        description: 'Breaks & transitions to log decisions and capture screenshots.',
+        time: '10 min (2 x 5)',
+        description: 'Micro-breaks, parity screenshot capture, and governance note logging.',
       },
     ],
     timeline: [
       {
-        label: 'Module 1 · Prompt Engineering Essentials',
-        duration: '30 min',
-        detail: 'Copilot Chat in VS Code · /explain, @workspace data_dictionary.md, /tests',
-      },
-      {
-        label: 'Module 4 · Legacy Code Decomposition & Modernization',
-        duration: '90 min',
-        detail: 'Copilot Chat in VS Code + Copilot CLI · /explain, /tests, #codebase cobol_src/interest-adjustment.cbl',
-      },
-      {
-        label: 'Live refactor review & parity testing',
-        duration: '50 min',
-        detail: 'Copilot PR Review · Ask about this diff, /summary, /fix for modernization QA.',
-      },
-      {
-        label: 'Break & transition logging',
+        label: 'Re-entry & metric checkpoint',
         duration: '10 min',
-        detail: 'Capture parity screenshots, update modernization rubric, prep governance lab.',
+        detail: 'Review session-one metrics, assign modernization roles, and set parity targets.',
       },
       {
-        label: 'Module 5 · Governance & Accuracy Fundamentals',
-        duration: '40 min',
-        detail: 'Copilot Chat in VS Code · /explain, /doc, #codebase hallucination_report.md',
+        label: 'Module 4 · COBOL walkthrough',
+        duration: '10 min',
+        detail: 'Use /explain on #codebase cobol_src/interest-adjustment.cbl to produce a plain-language summary.',
       },
       {
-        label: 'Debrief, metrics, and rubric calibration',
-        duration: '20 min',
-        detail: 'Synthesize modernization learnings, align ISO/NIST evidence, publish metrics.',
+        label: 'Module 4 · Python scaffold',
+        duration: '10 min',
+        detail: 'Generate Python structure and tests, noting assumptions in the change-control log.',
+      },
+      {
+        label: 'Module 4 · Golden dataset parity',
+        duration: '10 min',
+        detail: 'Run parity checks against golden_dataset/ and capture diffs for the PR.',
+      },
+      {
+        label: 'Module 5 · Incident triage drill',
+        duration: '10 min',
+        detail: 'Review a flawed output, score severity, and update accuracy_register.csv.',
+      },
+      {
+        label: 'Module 5 · NIST/ISO crosswalk',
+        duration: '10 min',
+        detail: 'Map artifacts to the governance crosswalk and fill gaps with action items.',
+      },
+      {
+        label: 'Module 5 · Transparency & escalation',
+        duration: '10 min',
+        detail: 'Draft transparency notes and escalation packets using /doc with evidence paths.',
+      },
+      {
+        label: 'Retro & next metrics',
+        duration: '10 min',
+        detail: 'Capture session metrics, confirm homework completion plan, and assign follow-up owners.',
       },
     ],
     outcomes: [
-      'Ships Python refactor that passes golden dataset parity tests before merge.',
-      'Captures ISO/IEC-aligned risk log with rollback and approval checkpoints.',
-      'Reports modernization metrics: PR cycle time, issues found by validation, governance health.',
+      'Module 4 parity tests pass with change-control log and Copilot PR summary drafted.',
+      'Module 5 incident response documented with NIST/ISO crosswalk updates and transparency note.',
+      'Next-step metrics defined (parity defects, escalation turnaround, homework checkpoints).',
     ],
   },
 ];
@@ -309,7 +304,7 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 1 · Prompt Engineering Essentials',
     focus: 'Copilot prompt scaffolds, DuckDB validation, and SQLFluff discipline',
     status: 'Core',
-    time: '30 min',
+    time: '30 min live (3 x 10-minute tasks)',
     summary: 'Run Copilot Chat with /explain, @workspace data_dictionary.md, and /tests to produce DuckDB SQL that lint cleanly before execution.',
     lab: 'Hands-on: Generate a dataset briefing, validated SQL, and SQLFluff evidence',
     outcomes: [
@@ -323,8 +318,8 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 2 · Automating Everyday Data Tasks',
     focus: 'Copilot CLI automation, dry-run governance, and PR review rituals',
     status: 'Optional',
-    time: '50 min (optional)',
-    summary: 'Use Copilot CLI to scaffold the weekly margin refresh with logging, then rely on Copilot PR Review to summarize diffs while secret scanning and OIDC guardrails stay active.',
+    time: '30 min optional (homework sprints)',
+    summary: 'Use Copilot CLI to scaffold the weekly margin refresh with logging, then rely on Copilot PR Review to summarize diffs while secret scanning and OIDC guardrails stay active. Best tackled in homework sprints.',
     lab: 'Hands-on: Build the weekly refresh script, capture dry-run logs, and ship a Copilot-reviewed PR',
     outcomes: [
       'Run Copilot CLI with --dry-run logging and keep execution proof in the repo',
@@ -337,7 +332,7 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 3 · Insight Generation & Storytelling',
     focus: 'Canonical Power BI storytelling with fact-check loops and OWASP drills',
     status: 'Critical',
-    time: '65 min',
+    time: '30 min live (3 x 10-minute tasks)',
     summary: 'Anchor Copilot narratives in canonical Power BI visuals, cite metrics with @workspace prompts, and log OWASP hallucination drills before publish.',
     lab: 'Hands-on: Craft a fact-checked briefing with evidence table and OWASP drill notes',
     outcomes: [
@@ -351,7 +346,7 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 4 · Legacy Code Decomposition & Modernization',
     focus: 'Open Mainframe modernization with parity tests and PR governance',
     status: 'Critical',
-    time: '90 min',
+    time: '30 min live (3 x 10-minute tasks)',
     summary: 'Use Copilot Chat, Copilot CLI, and Copilot PR Review to translate Open Mainframe COBOL into Python with golden dataset parity and ISO/IEC risk logs.',
     lab: 'Hands-on: Modernize COBOL with parity tests, Copilot PR review, and ISO/IEC risk briefings',
     outcomes: [
@@ -365,7 +360,7 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 5 · Governance & Accuracy Fundamentals',
     focus: 'NIST-aligned governance, prompt-injection drills, and transparency practices',
     status: 'Core',
-    time: '45 min (40 in deep-dive wrap)',
+    time: '30 min live (3 x 10-minute tasks)',
     summary: 'Map artifacts to NIST AI RMF and the Generative AI Profile, neutralize prompt-injection attempts, and publish transparency notes with escalation packets.',
     lab: 'Hands-on: Run hallucination response, build the standards crosswalk, and log transparency notes',
     outcomes: [
@@ -395,7 +390,7 @@ const courseMaterials: CourseMaterial[] = [
   {
     key: 'homework',
     title: 'Post-Lab Homework',
-    description: 'Four browser-based follow-ups that extend prompting, storytelling, modernization, and governance.',
+    description: 'Four 30-minute follow-ups (2 hours total) to extend prompting, storytelling, modernization, and governance.',
     to: '/homework',
     cta: 'View Assignments',
   },
@@ -435,11 +430,11 @@ const supportHighlights: SupportHighlight[] = [
   },
   {
     title: 'Keep Practicing',
-    description: 'Use the homework packs to cement the skills where your teams need them most.',
+    description: 'Use the 2-hour homework circuit (four 30-minute sprints) to cement the skills where your teams need them most.',
     bullets: [
-      'Run prompt diagnostics on your own datasets',
-      'Draft exec-ready stories from current dashboards',
-      'Refine modernization plans for priority legacy systems',
+      'Run prompt diagnostics on your own datasets in 30-minute bursts',
+      'Draft exec-ready stories from current dashboards with evidence logs',
+      'Refine modernization and governance artefacts before the next release',
     ],
     to: '/homework',
     cta: 'Plan Homework',
@@ -453,7 +448,7 @@ export default function HomePage() {
       {/* Hero Section */}
       <section className="container mx-auto px-3 sm:px-4 py-8 sm:py-12 md:py-16">
         <div className="max-w-4xl mx-auto text-center space-y-4 sm:space-y-6">
-          <Badge className="mb-2 bg-[#FF930F] text-white text-xs sm:text-sm">Hands-On Program</Badge>
+          <Badge className="mb-2 bg-[#FF930F] text-white text-xs sm:text-sm">Two-Session Program</Badge>
           <h2
             className="text-2xl sm:text-4xl md:text-5xl font-bold text-[#1D2E38] leading-tight px-2"
             style={{
@@ -465,7 +460,7 @@ export default function HomePage() {
             Build Core GenAI Skills for Analytical Teams
           </h2>
           <p className="text-sm sm:text-lg text-[#4b5a63] max-w-2xl mx-auto px-2">
-            Engineer prompts, automate routine work, craft executive narratives, modernize legacy code, and prove accuracy with repeatable governance patterns—all in one accelerator.
+            Work through two 75-minute live sessions focused on core modules, then complete a 2-hour homework circuit to cement prompting, storytelling, modernization, and governance techniques.
           </p>
         </div>
       </section>
@@ -474,11 +469,11 @@ export default function HomePage() {
       <section className="container mx-auto px-3 sm:px-4 py-8 sm:py-12">
         <div className="max-w-6xl mx-auto space-y-6 sm:space-y-8">
           <div className="text-center space-y-3">
-            <Badge className="bg-[#1D2E38] text-white text-xs sm:text-sm">Choose Your Track</Badge>
-            <h3 className="text-xl sm:text-2xl font-bold text-[#1D2E38]">Facilitator Runbooks</h3>
+            <Badge className="bg-[#1D2E38] text-white text-xs sm:text-sm">Plan Your Sessions</Badge>
+            <h3 className="text-xl sm:text-2xl font-bold text-[#1D2E38]">Two 75-Minute Runbooks</h3>
             <p className="text-sm sm:text-base text-[#4b5a63] max-w-3xl mx-auto">
-              Select the agenda that fits your cohort. Each runbook calls out the Copilot surface to launch, the slash commands to rehearse, and the evidence artifacts you must collect before moving on.
-            </p>
+              Follow these back-to-back 75-minute agendas. Each runbook breaks modules into 10-minute sprints, calls out the Copilot surface to launch, lists the slash commands to rehearse, and reminds you which evidence to capture.
+          </p>
           </div>
 
           <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
@@ -752,8 +747,8 @@ export default function HomePage() {
           <div className="text-center space-y-3">
             <h3 className="text-xl sm:text-2xl font-bold text-[#1D2E38]">Session Structure Reference</h3>
             <p className="text-sm sm:text-base text-[#4b5a63] max-w-3xl mx-auto">
-              Use these timelines to pace your cohort. Each slot highlights the Copilot surface and ritual to emphasize so facilitators can keep the room aligned.
-            </p>
+              Use these timelines to pace your cohort. Each slot is a 10-minute sprint highlighting the Copilot surface and ritual to emphasize so facilitators can keep the room aligned.
+          </p>
           </div>
           <div className="grid gap-4 sm:gap-6 lg:grid-cols-2">
             {runbooks.map((runbook) => (

@@ -1,6 +1,6 @@
 # Accelerator Template Repository
 
-This directory mirrors the structure shipped to learners in Codespaces. Clone or fork it to create sandbox copies for each cohort.
+This directory mirrors the structure shipped to learners in Codespaces. Clone or fork it to create sandbox copies for each cohort. The accelerator now runs across two 75-minute live sessions (Modules 1/3 then 4/5) with a two-hour homework circuit of four 30-minute sprints.
 
 ## Structure
 - `module1_prompting/` – DuckDB dataset, data dictionary, validation log, and notebook workspace.

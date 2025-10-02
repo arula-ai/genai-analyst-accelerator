@@ -15,40 +15,40 @@ const assignments = [
   {
     id: 'prompt-diagnostics',
     title: 'Prompt Diagnostics Lab',
-    duration: '45 minutes',
+    duration: '30 minutes (3 x 10)',
     icon: Sparkles,
     summary:
-      'Stress-test your prompts on a new dataset. Capture bias flags, iterate with corrective prompts, and compare SQL outputs to a golden answer key.',
+      'Stress-test prompts on a new dataset with three 10-minute sprints: initial framing, bias remediation, and DuckDB validation plus SQLFluff wrap.',
     focus: ['Prompt teardown scorecard', 'Bias tagging workflow', 'SQL & summary validation grid'],
     content: promptDiagnostics,
   },
   {
     id: 'storytelling-sprint',
     title: 'Executive Narrative Remix',
-    duration: '40 minutes',
+    duration: '30 minutes (3 x 10)',
     icon: GaugeCircle,
     summary:
-      'Transform a Power BI excerpt for three audiences: executives, operations, and compliance. Log the adjustments and cite every metric.',
+      'Remix a Power BI excerpt for executives, operations, and compliance across three 10-minute sprints: visual capture, Copilot /doc drafting, and evidence-table fact check.',
     focus: ['Audience tone matrix', 'Fact-check prompts and evidence capture', 'Narrative reuse patterns'],
     content: storytellingSprint,
   },
   {
     id: 'modernization-lab',
     title: 'Legacy Modernization Deep Dive',
-    duration: '60 minutes',
+    duration: '30 minutes (3 x 10)',
     icon: Layers,
     summary:
-      'Deconstruct a COBOL routine, generate a Python replacement, and write a modernization brief with rollback considerations.',
+      'Deconstruct a COBOL routine, scaffold a Python replacement, and document parity plus risk notes in three focused 10-minute bursts.',
     focus: ['Legacy walkthrough template', 'Python test harness prompts', 'Risk & stakeholder communication checklist'],
     content: modernizationLab,
   },
   {
     id: 'accuracy-audit',
     title: 'Accuracy Audit Cycle',
-    duration: '50 minutes',
+    duration: '30 minutes (3 x 10)',
     icon: ShieldCheck,
     summary:
-      'Run the hallucination response workflow on intentionally flawed outputs. Produce evidence logs, escalation notes, and remediation plans.',
+      'Run the hallucination response workflow on intentionally flawed outputs: detection, NIST/ISO mapping, and escalation packet drafting.',
     focus: ['Incident scoring rubric', 'Escalation messaging', 'Accuracy register updates'],
     content: accuracyAudit,
   },
@@ -58,10 +58,10 @@ export default function HomeworkPage() {
   return (
     <div className="container mx-auto px-4 py-8 max-w-7xl">
       <div className="mb-8 space-y-4">
-        <Badge className="bg-[#FF930F] text-white">Post-Session Practice</Badge>
+        <Badge className="bg-[#FF930F] text-white">2-Hour Practice Path</Badge>
         <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Homework Assignments</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl">
-          Reinforce the accelerator with four focused drills. Each assignment maps to a module—prompt discipline, storytelling accuracy, modernization, and governance—so you can embed the habits inside live projects.
+          Reinforce the accelerator with four 30-minute drills (totaling two hours). Each assignment maps to a module—prompt discipline, storytelling accuracy, modernization, and governance—so you can embed the habits inside live projects.
         </p>
       </div>
 
@@ -71,7 +71,7 @@ export default function HomeworkPage() {
             <ClipboardList className="w-6 h-6 text-[#FF930F]" /> Homework Overview
           </CardTitle>
           <CardDescription className="text-slate-600 dark:text-slate-300">
-            Summary of objectives, required assets, and submission guidance without leaving this page.
+            Summary of objectives, required assets, and submission guidance—plan ~30 minutes per assignment.
           </CardDescription>
         </CardHeader>
         <CardContent>

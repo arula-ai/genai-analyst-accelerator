@@ -2,6 +2,8 @@
 
 **Module Alignment:** Module 1 – Prompt Engineering Essentials
 
+**Timebox:** ~30 minutes (three 10-minute sprints)
+
 ## Goal
 
 Stress-test your prompt design skills on a new dataset. Capture bias flags, iterate with corrective prompts, and deliver validated SQL alongside a reviewer-ready log.

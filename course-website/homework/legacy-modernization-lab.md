@@ -2,6 +2,8 @@
 
 **Module Alignment:** Module 4 – Legacy Code Decomposition & Modernization
 
+**Timebox:** ~30 minutes (three 10-minute sprints)
+
 ## Goal
 
 Explain a legacy COBOL routine in business language, create a Python equivalent, and document risks with a change-control log.

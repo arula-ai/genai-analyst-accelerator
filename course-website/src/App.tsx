@@ -37,12 +37,12 @@ function App() {
                   Build confident, responsible automation skills
                 </p>
                 <p className="text-[11px] text-[#1D2E38] dark:text-[#f6f8f9] sm:hidden">
-                  Core 2.5h · Deep Dive 4h tracks available
+                  Two 75-minute live sessions + 2h homework path
                 </p>
               </div>
             </Link>
             <Badge className="hidden sm:flex bg-[#1D2E38] text-white flex-shrink-0">
-              Tracks: Core 2.5h · Deep Dive 4h
+              Live Sessions: 2 × 75 min
             </Badge>
           </div>
 

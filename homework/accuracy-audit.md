@@ -2,6 +2,8 @@
 
 **Module Alignment:** Module 5 – Governance & Accuracy Fundamentals
 
+**Timebox:** ~30 minutes (three 10-minute sprints)
+
 ## Goal
 
 Run the hallucination response workflow on intentionally flawed outputs. Capture evidence, escalation messages, and improvement actions.

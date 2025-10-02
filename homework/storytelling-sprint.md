@@ -2,6 +2,8 @@
 
 **Module Alignment:** Module 3 – Insight Generation & Storytelling
 
+**Timebox:** ~30 minutes (three 10-minute sprints)
+
 ## Goal
 
 Use the Power BI executive pack to craft audience-specific narratives while capturing every evidence trail.
