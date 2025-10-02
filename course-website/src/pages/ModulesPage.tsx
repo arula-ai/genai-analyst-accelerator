@@ -34,7 +34,7 @@ import module3Readme from '@content/modules/module-3-insight-storytelling/README
 import module3Template from '@content/modules/module-3-insight-storytelling/briefings/template.md?raw';
 
 import module4Readme from '@content/modules/module-4-legacy-modernization/README.md?raw';
-import module4ChangeLog from '@content/modules/module-4-legacy-modernization/logs/change-control-log.md?raw';
+import module4ChangeLog from '@content/modules/module-4-legacy-modernization/templates/change-control-log.md?raw';
 import module4Cobol from '@content/modules/module-4-legacy-modernization/legacy/interest-adjustment.cbl?raw';
 
 import module5Readme from '@content/modules/module-5-governance/README.md?raw';
