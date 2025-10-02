@@ -4,7 +4,94 @@ import { Badge } from '@/components/ui/badge';
 import { Separator } from '@/components/ui/separator';
 import { Link } from 'react-router-dom';
 
+type CourseMaterial = {
+  key: string;
+  title: string;
+  description: string;
+  path: string;
+  note?: string;
+  to?: string;
+  cta?: string;
+};
+
+type SupportHighlight = {
+  title: string;
+  description: string;
+  bullets: string[];
+  to: string;
+  cta: string;
+};
+
 export default function HomePage() {
+  const courseMaterials: CourseMaterial[] = [
+    {
+      key: 'lab-guide',
+      title: 'Lab Guide',
+      description: 'Full 75-minute walkthrough with agenda, prompts, checkpoints, and timing guidance.',
+      path: 'lab-guide.md',
+      note: 'Open in your IDE before the session to preview the complete flow.',
+    },
+    {
+      key: 'resources',
+      title: 'Resources Library',
+      description: 'Prompt pattern guide, Gherkin syntax, Mermaid references, OpenAPI basics, and troubleshooting.',
+      path: 'resources/',
+      to: '/resources',
+      cta: 'Browse Resources',
+    },
+    {
+      key: 'homework',
+      title: 'Homework Assignments',
+      description: 'Three post-session exercises that reinforce critique skills, traceability, and team standards.',
+      path: 'homework/',
+      to: '/homework',
+      cta: 'Review Homework',
+    },
+    {
+      key: 'solutions',
+      title: 'Sample Solutions',
+      description: 'Completed artifacts for both paths—epics, stories, flowcharts, contracts, UAT tests.',
+      path: 'path-a-backlog/solutions/, path-b-process-data/solutions/',
+      note: 'Use for reference after attempting the exercises yourself.',
+    },
+  ] as const;
+
+  const supportHighlights: SupportHighlight[] = [
+    {
+      title: 'Need Help During the Lab?',
+      description: 'Start with the troubleshooting guide for prompt tuning, IDE fixes, and Copilot resets.',
+      bullets: [
+        'Check `resources/copilot-troubleshooting.md` for quick fixes',
+        'Escalate any persistent IDE issues to your facilitator',
+        'Use the prompt pattern reference to tighten requests',
+      ],
+      to: '/resources',
+      cta: 'Open Resources',
+    },
+    {
+      title: 'Stay Compliant',
+      description: 'Follow the security guardrails every time you prompt Copilot with business context.',
+      bullets: [
+        'Keep synthetic data in all prompts and outputs',
+        'Use the Verify-Before-Commit checklist before saving work',
+        'Document sources, rationale, and reviewer names',
+      ],
+      to: '/security',
+      cta: 'Review Security',
+    },
+    {
+      title: 'Continue Learning',
+      description: 'Apply what you built to real projects with structured follow-up activities.',
+      bullets: [
+        'Complete homework assignments for critique, RTM, and DoR/DoD',
+        'Share artifacts with your team for feedback and adoption',
+        'Build a reusable prompt library tailored to your domain',
+      ],
+      to: '/homework',
+      cta: 'Plan Homework',
+    },
+  ] as const;
+
   return (
     <div>
       {/* Hero Section */}
@@ -211,15 +298,36 @@ export default function HomePage() {
             Course Materials at a Glance
           </h3>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {[
-              {
-                title: 'Lab Guide',
-                description: 'Full 75-minute walkthrough with checkpoints, timing, and success criteria.',
-                path: 'lab-guide.md',
-                linkLabel: 'Open Lab Guide',
-                to: 'https://github.com' // placeholder replaced below
-              },
-            ].map(() => null)}
+            {courseMaterials.map((item) => (
+              <Card key={item.key} className="border-slate-200 dark:border-slate-700">
+                <CardHeader className="space-y-2">
+                  <CardTitle className="text-lg text-slate-900 dark:text-white">{item.title}</CardTitle>
+                  <CardDescription className="text-sm text-slate-600 dark:text-slate-300">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                  <div>
+                    <p className="text-xs uppercase tracking-wide text-slate-500 dark:text-slate-500 mb-1">
+                      Repository Path
+                    </p>
+                    <code className="text-xs bg-slate-100 dark:bg-slate-800 px-2 py-1 rounded">
+                      {item.path}
+                    </code>
+                  </div>
+                  {item.note ? (
+                    <p className="text-xs text-slate-500 dark:text-slate-500 leading-snug">{item.note}</p>
+                  ) : null}
+                  {item.to ? (
+                    <Link to={item.to}>
+                      <Button variant="outline" className="w-full">
+                        {item.cta}
+                      </Button>
+                    </Link>
+                  ) : null}
+                </CardContent>
+              </Card>
+            ))}
           </div>
         </div>
       </section>
@@ -278,6 +386,39 @@ export default function HomePage() {
                 </CardHeader>
                 <CardContent>
                   <CardDescription className="text-sm">{segment.desc}</CardDescription>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Support & Next Steps */}
+      <section className="container mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto">
+          <h3 className="text-2xl font-bold text-slate-900 dark:text-white mb-6 text-center">
+            Get Support & Continue Learning
+          </h3>
+          <div className="grid md:grid-cols-3 gap-4">
+            {supportHighlights.map((item) => (
+              <Card key={item.title} className="border-indigo-100 dark:border-indigo-900/40">
+                <CardHeader>
+                  <CardTitle className="text-lg text-slate-900 dark:text-white">{item.title}</CardTitle>
+                  <CardDescription className="text-sm text-slate-600 dark:text-slate-300">
+                    {item.description}
+                  </CardDescription>
+                </CardHeader>
+                <CardContent className="space-y-3 text-sm text-slate-600 dark:text-slate-400">
+                  <ul className="space-y-1">
+                    {item.bullets.map((bullet) => (
+                      <li key={bullet}>• {bullet}</li>
+                    ))}
+                  </ul>
+                  <Link to={item.to}>
+                    <Button variant="outline" className="w-full">
+                      {item.cta}
+                    </Button>
+                  </Link>
                 </CardContent>
               </Card>
             ))}
