@@ -4,7 +4,7 @@ Hands-on curriculum for business, systems, and data analysts who want to pair Ge
 
 ## What You Get
 
-- **Five modules** covering prompt engineering, automation, insight storytelling, legacy modernization, and governance.
+- **Four core modules** covering prompt engineering, optional automation, legacy analysis, and governance.
 - **Synthetic assets** (datasets, visuals, COBOL snippets) ready to practise with GenAI tools.
 - **Course website** built with Vite/React that hosts agendas, homework, and resource libraries.
 - **Governance artifacts** including accuracy registers, validation logs, and incident workflows.
@@ -14,11 +14,11 @@ Hands-on curriculum for business, systems, and data analysts who want to pair Ge
 ```
 module-1-prompt-engineering/     # Prompt drills, SQL validation logs, datasets
 module-2-automation/             # Automation prompts, reviewer scorecards, scripts
-module-3-insight-storytelling/   # Briefing templates, evidence tables, dashboard assets
-module-4-legacy-modernization/   # COBOL samples, Python workspace, change logs
+module-4-legacy-modernization/   # COBOL samples, data-mapping workspace, change logs
 module-5-governance/             # Accuracy registers, incident reports, escalation templates
 course-website/                  # React site serving the curriculum
 resources/                       # Shared assets referenced by the site (playbooks, templates)
+legacy-cobol-jcl-sample/        # Stand-alone COBOL + JCL template analysts can clone
 lab-guide.md                     # Facilitator runbook for the live session
 copilot-analysts-lab-instructions.md  # Detailed content guide for each module
 ```
@@ -43,8 +43,7 @@ copilot-analysts-lab-instructions.md  # Detailed content guide for each module
 | --- | --- | --- |
 | 1. Prompt Engineering Essentials | Prompt clarity, bias awareness, validation loops | Summarise datasets and generate validated SQL |
 | 2. Automating Everyday Data Tasks *(optional)* | Privacy-aware automation, reviewer scorecards | Automate weekly reports using Excel, SQL, Python |
-| 3. Insight Generation & Storytelling | Fact-checked narratives from dashboards | Write three audience-specific briefings from Power BI visuals |
-| 4. Legacy Code Decomposition & Modernization | Risk analysis for legacy transformations | Refactor COBOL to Python with change-control docs |
+| 4. Legacy Logic Analysis & Data Mapping | Business logic discovery, data flow tracing | Build a data requirements package from COBOL discovery notes |
 | 5. Governance & Accuracy Fundamentals | Hallucination response, evidence capture | Run an accuracy audit and escalation workflow |
 
 ## Homework Packs

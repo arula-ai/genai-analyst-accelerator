@@ -1,5 +1,4 @@
 import {
-  BookOpen,
   ClipboardList,
   Cog,
   FileText,
@@ -10,6 +9,7 @@ import {
   Sparkles,
   TrendingUp,
   Workflow,
+  Layers,
 } from 'lucide-react';
 
 import MarkdownContent from '@/components/markdown-content';
@@ -23,13 +23,13 @@ import verifyChecklist from '@content/setup/verify-before-commit-checklist.md?ra
 import promptClarityBlueprint from '@content/resources/prompt-clarity-blueprint.md?raw';
 import biasValidationChecklist from '@content/resources/bias-validation-checklist.md?raw';
 import automationCookbook from '@content/resources/automation-cookbook.md?raw';
-import insightStorytellingPlaybook from '@content/resources/insight-storytelling-playbook.md?raw';
 import legacyModernizationFieldGuide from '@content/resources/legacy-modernization-field-guide.md?raw';
 import hallucinationResponsePlaybook from '@content/resources/hallucination-response-playbook.md?raw';
 import copilotCheatSheet from '@content/resources/copilot-chat-cheat-sheet.md?raw';
 import devcontainerGuide from '@content/resources/devcontainer-quickstart.md?raw';
 import measurementPlaybook from '@content/resources/measurement-playbook.md?raw';
 import trustCenterBriefing from '@content/resources/trust-center-briefing.md?raw';
+import legacyDataMappingToolkit from '@content/resources/legacy-data-mapping-toolkit.md?raw';
 
 const resources = [
   {
@@ -183,19 +183,19 @@ const resources = [
     content: automationCookbook,
   },
   {
-    id: 'insight-storytelling-playbook',
-    title: 'Insight Storytelling Playbook',
-    subtitle: 'Narrative scaffolds for executive, operations, and compliance audiences',
-    description: 'Transform dashboards into stories with fact-check prompts, tone adjustments, and supporting evidence tables.',
-    icon: BookOpen,
-    accent: 'bg-[#9A6DF2]/10 text-[#5B2EC9] dark:bg-[#9A6DF2]/20 dark:text-[#d3b7ff]',
+    id: 'legacy-data-mapping-toolkit',
+    title: 'Legacy Data Mapping Toolkit',
+    subtitle: 'Business logic discovery & data requirements prompts',
+    description: 'Analyst playbook for deconstructing COBOL, mapping data flow, and drafting requirements packages.',
+    icon: Layers,
+    accent: 'bg-[#E8F1FF] text-[#1D4ED8] dark:text-[#93B4FF] dark:bg-[#1E2E4F]',
     keyTopics: [
-      'Story spine templates: context, insight, implication, request',
-      'Audience-specific tone switches and risk language',
-      'Validation prompts to compare claims versus chart annotations',
+      'COBOL walk-through prompts focused on business outcomes',
+      'Data flow mapping templates and SME question logs',
+      'Requirements package checklist for modernization handoffs',
     ],
-    readTime: '14 min read',
-    content: insightStorytellingPlaybook,
+    readTime: '6 min read',
+    content: legacyDataMappingToolkit,
   },
   {
     id: 'legacy-modernization-field-guide',
@@ -368,11 +368,6 @@ export default function ResourcesPage() {
             <li>
               <a className="text-[#1D2E38] underline" href="https://docs.sqlfluff.com/" target="_blank" rel="noreferrer">
                 SQLFluff Documentation
-              </a>
-            </li>
-            <li>
-              <a className="text-[#1D2E38] underline" href="https://learn.microsoft.com/power-bi/create-reports/sample-datasets" target="_blank" rel="noreferrer">
-                Microsoft Learn: Power BI Sample Datasets
               </a>
             </li>
             <li>

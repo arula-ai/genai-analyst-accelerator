@@ -9,7 +9,7 @@ This guide details every asset in the repository and how to use it during the fi
 ```
 module-1-prompt-engineering/
 module-2-automation/
-module-3-insight-storytelling/
+
 module-4-legacy-modernization/
 module-5-governance/
 course-website/
@@ -51,13 +51,12 @@ Each `module-*` folder contains prompts, datasets, and templates for the live la
 
 ---
 
-## Module 3 · Insight Generation & Storytelling
 
 **Goal:** Produce stakeholder-specific narratives backed by metric evidence.
 
-- `module-3-insight-storytelling/assets/` – Power BI screenshots and data exports.
-- `module-3-insight-storytelling/briefings/template.md` – Starting point for each audience.
-- `module-3-insight-storytelling/evidence/` – Store fact-check logs and evidence tables.
+- `assets/` – Power BI screenshots and data exports.
+- `briefings/template.md` – Starting point for each audience.
+- `evidence/` – Store fact-check logs and evidence tables.
 
 **Facilitation tips:**
 - Require participants to cite every claim using the evidence table.

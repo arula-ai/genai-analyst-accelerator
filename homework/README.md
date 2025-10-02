@@ -5,8 +5,8 @@ These four assignments deepen the skills from the GenAI Analyst Accelerator. Tac
 | Assignment | Module | Focus | Duration | Output |
 | --- | --- | --- | --- | --- |
 | Prompt Diagnostics Lab | Module 1 | Prompt clarity, SQL validation | ~30 minutes | Prompt iterations, SQL scripts, validation log |
-| Executive Narrative Remix | Module 3 | Storytelling accuracy | ~30 minutes | Three tailored briefings + evidence table |
-| Legacy Modernization Deep Dive | Module 4 | COBOL decomposition, modernization plan | ~30 minutes | Python refactor, change-control log |
+| Legacy Data Mapping Sprint | Module 4 | Business logic discovery, data flow mapping | ~30 minutes | Legacy walkthrough notes, data flow diagram |
+| Data Requirements Package Build | Module 4 | Requirements documentation, modernization handoff | ~30 minutes | Data requirements package, stakeholder follow-up list |
 | Accuracy Audit Cycle | Module 5 | Hallucination response, governance | ~30 minutes | Incident report, updated accuracy register |
 
 ## Getting Started

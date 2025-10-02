@@ -2,7 +2,7 @@
 
 Total time: **150 minutes (2.5 hours)**
 
-This guide walks facilitators through the new five-module curriculum. Adjust timing as needed for your audience.
+This guide walks facilitators through the refreshed four-module journey (Modules 1, 4, optional 2 homework, and 5). Adjust timing as needed for your audience.
 
 ---
 
@@ -27,57 +27,55 @@ This guide walks facilitators through the new five-module curriculum. Adjust tim
 
 ---
 
-## 2. Module 1 · Prompt Engineering Essentials (0:15 – 1:00)
+## 2. Module 1 · Prompt Engineering Essentials (0:15 – 0:45)
 
 1. **Demo (10 min)** – Show how the five-part blueprint shapes a dataset briefing prompt.
-2. **Hands-on (20 min)** – Participants iterate on prompts using `module-1-prompt-engineering/prompts/summary-and-sql.md`.
+2. **Hands-on (15 min)** – Participants iterate on prompts using `module-1-prompt-engineering/prompts/summary-and-sql.md`.
    - Deliver SQL scripts and validation logs.
    - Accuracy captain records outputs in the register.
-3. **Debrief (15 min)** – Discuss bias flags, validation wins, and prompt adjustments.
+3. **Debrief (5 min)** – Discuss bias flags, validation wins, and prompt adjustments.
 
 **Artifacts to collect:** prompt versions, SQL validation log, reflection notes.
 
 ---
 
-## 3. Module 3 · Insight Generation & Storytelling (1:00 – 1:45)
+## 3. Module 4 · Legacy Logic Discovery (0:45 – 1:15)
 
-1. **Briefing structure (5 min)** – Introduce the story spine and audience tone matrix.
-2. **Hands-on (25 min)** – Teams create executive, operations, and compliance briefings using assets in `module-3-insight-storytelling/`.
-3. **Fact-check (10 min)** – Run bias/validation prompts, update evidence tables.
-4. **Share-out (5 min)** – Volunteer teams present one paragraph and the matching evidence.
+1. **Walkthrough (10 min)** – Use `/explain` on the COBOL sample to surface business rules, decisions, and edge cases.
+2. **Hands-on (15 min)** – Teams document business logic and begin mapping data lineage using the change-control log template.
+3. **Data mapping & share-out (10 min)** – Translate findings into a draft data flow map, note sources/consumers, and highlight SME questions.
 
-**Artifacts to collect:** three briefings, evidence table, fact-check log.
-
----
-
-## 4. Break / Optional Module 2 (1:45 – 2:05)
-
-Use this 20-minute window for a quick break **or** to sample Module 2 automation prompts. Emphasise that automation adoption requires strict review rituals.
+**Artifacts to collect:** business-logic summary, preliminary data flow map, SME question log.
 
 ---
 
-## 5. Module 4 · Legacy Modernization (2:05 – 2:55)
+## 4. Break / Optional Module 2 (1:15 – 1:25)
 
-1. **Walkthrough (10 min)** – Review the decomposition worksheet and COBOL program.
-2. **Hands-on (25 min)** – Participants explain the legacy logic and generate a Python refactor.
-3. **Risk logging (10 min)** – Complete the change-control log with mitigations and rollback triggers.
-4. **Discussion (5 min)** – Highlight risks discovered and unit tests generated.
-
-**Artifacts to collect:** legacy walkthrough, Python module, change-control log, validation evidence.
+Use this 10-minute window for a quick break **or** to sample Module 2 automation prompts. Emphasise that automation adoption requires strict review rituals.
 
 ---
 
-## 6. Module 5 · Governance & Accuracy Lab (2:55 – 3:30)
+## 5. Module 4 · Data Requirements Package (1:25 – 1:55)
+
+1. **Stakeholder alignment (10 min)** – Identify data owners, outstanding questions, and required approvals.
+2. **Hands-on (15 min)** – Build the data requirements package using mapping outputs, quality rules, and ownership details.
+3. **Handoff briefing (5 min)** – Summarise analyst insights for engineering and operations, including risks and acceptance criteria.
+
+**Artifacts to collect:** completed data requirements package, updated change-control log, modernization handoff summary.
+
+---
+
+## 6. Module 5 · Governance & Accuracy Lab (1:55 – 2:25)
 
 1. **Incident review (10 min)** – Analyse intentionally flawed outputs (provide ahead of time or use participants’ work).
 2. **Response workflow (15 min)** – Follow the Hallucination Response Playbook to capture severity, evidence, and escalation messages.
-3. **Retrospective (10 min)** – Update the accuracy register, agree on improvements, and assign owners.
+3. **Retrospective (5 min)** – Update the accuracy register, agree on improvements, and assign owners.
 
 **Artifacts to collect:** incident reports, updated accuracy register, retrospective notes.
 
 ---
 
-## 7. Wrap-Up & Next Steps (3:30 – 3:40)
+## 7. Wrap-Up & Next Steps (2:25 – 2:30)
 
 - Celebrate wins and spotlight great validations.
 - Assign homework packs (`course-website/homework/`).

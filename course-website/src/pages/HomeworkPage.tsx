@@ -7,8 +7,8 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 import homeworkOverview from '@content/homework/README.md?raw';
 import promptDiagnostics from '@content/homework/prompt-diagnostics.md?raw';
-import storytellingSprint from '@content/homework/storytelling-sprint.md?raw';
-import modernizationLab from '@content/homework/legacy-modernization-lab.md?raw';
+import legacyDataMapping from '@content/homework/legacy-data-mapping.md?raw';
+import dataRequirementsPackage from '@content/homework/data-requirements-package.md?raw';
 import accuracyAudit from '@content/homework/accuracy-audit.md?raw';
 
 const assignments = [
@@ -23,24 +23,24 @@ const assignments = [
     content: promptDiagnostics,
   },
   {
-    id: 'storytelling-sprint',
-    title: 'Executive Narrative Remix',
+    id: 'legacy-data-mapping',
+    title: 'Legacy Data Mapping Sprint',
     duration: '30 minutes (3 x 10)',
     icon: GaugeCircle,
     summary:
-      'Remix a Power BI excerpt for executives, operations, and compliance across three 10-minute sprints: visual capture, Copilot /doc drafting, and evidence-table fact check.',
-    focus: ['Audience tone matrix', 'Fact-check prompts and evidence capture', 'Narrative reuse patterns'],
-    content: storytellingSprint,
+      'Document business logic and trace data flow across three 10-minute sprints: COBOL readout, data lineage mapping, and SME question capture.',
+    focus: ['Business logic summary template', 'Data flow mapping worksheet', 'SME follow-up checklist'],
+    content: legacyDataMapping,
   },
   {
-    id: 'modernization-lab',
-    title: 'Legacy Modernization Deep Dive',
+    id: 'data-requirements-package',
+    title: 'Data Requirements Package Build',
     duration: '30 minutes (3 x 10)',
     icon: Layers,
     summary:
-      'Deconstruct a COBOL routine, scaffold a Python replacement, and document parity plus risk notes in three focused 10-minute bursts.',
-    focus: ['Legacy walkthrough template', 'Python test harness prompts', 'Risk & stakeholder communication checklist'],
-    content: modernizationLab,
+      'Convert mapping notes into a stakeholder-ready data requirements package across three 10-minute sprints: stakeholder alignment, requirements drafting, and modernization handoff summary.',
+    focus: ['Requirements template completion', 'Owner and quality rule tracking', 'Modernization handoff briefing'],
+    content: dataRequirementsPackage,
   },
   {
     id: 'accuracy-audit',
@@ -61,7 +61,7 @@ export default function HomeworkPage() {
         <Badge className="bg-[#FF930F] text-white">2-Hour Practice Path</Badge>
         <h1 className="text-4xl font-bold text-slate-900 dark:text-white">Homework Assignments</h1>
         <p className="text-lg text-slate-600 dark:text-slate-300 max-w-3xl">
-          Reinforce the accelerator with four 30-minute drills (totaling two hours). Each assignment maps to a module—prompt discipline, storytelling accuracy, modernization, and governance—so you can embed the habits inside live projects.
+          Reinforce the accelerator with four 30-minute drills (totaling two hours). Each assignment maps to a module—prompt discipline, legacy analysis, data requirements, and governance—so you can embed the habits inside live projects.
         </p>
       </div>
 

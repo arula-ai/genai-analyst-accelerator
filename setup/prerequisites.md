@@ -1,3 +1,4 @@
+- [ ] COBOL + JCL repo available (`legacy-cobol-jcl-sample/` or published clone)
 # Prerequisites Checklist
 
 Complete this checklist before joining the GenAI Analyst Accelerator. It ensures you can run prompts, validate outputs, and capture governance evidence.
@@ -30,7 +31,6 @@ Complete this checklist before joining the GenAI Analyst Accelerator. It ensures
 ## Dataset & Asset Access
 
 - [ ] Synthetic dataset downloaded (`module-1-prompt-engineering/datasets/`)
-- [ ] Power BI exports available (`module-3-insight-storytelling/assets/`)
 - [ ] COBOL sample accessible (`module-4-legacy-modernization/legacy/`)
 - [ ] Automation assets copied (`module-2-automation/` – optional)
 

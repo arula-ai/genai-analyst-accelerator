@@ -30,9 +30,6 @@ import module2Readme from '@content/modules/module-2-automation/README.md?raw';
 import module2Prompts from '@content/modules/module-2-automation/prompts/excel-variance.md?raw';
 import module2Scorecard from '@content/modules/module-2-automation/scorecards/automation-review.md?raw';
 
-import module3Readme from '@content/modules/module-3-insight-storytelling/README.md?raw';
-import module3Template from '@content/modules/module-3-insight-storytelling/briefings/template.md?raw';
-
 import module4Readme from '@content/modules/module-4-legacy-modernization/README.md?raw';
 import module4ChangeLog from '@content/modules/module-4-legacy-modernization/templates/change-control-log.md?raw';
 import module4Cobol from '@content/modules/module-4-legacy-modernization/legacy/interest-adjustment.cbl?raw';
@@ -128,7 +125,7 @@ const modules: CourseModule[] = [
       'SQLFluff pass rate for generated SQL drafts',
       'Copilot suggestion acceptance rate for analytical SQL prompts',
     ],
-    trackFit: ['Core Accelerator', 'Modernization Deep Dive'],
+    trackFit: ['Session 1 · Foundations & Legacy Discovery'],
     assets: [
       'Prompt scaffold walkthrough in the Prompt Clarity Blueprint',
       'SQL validation log template and example below',
@@ -207,7 +204,7 @@ const modules: CourseModule[] = [
       'PR review turnaround and number of Copilot suggestions accepted',
       'Secrets blocked or prevented by push protection during the exercise',
     ],
-    trackFit: ['Optional Automation Track'],
+    trackFit: ['Optional Homework'],
     assets: [
       'Automation Cookbook recipes for CLI prompts and reviewer scorecards',
       'Automation review scorecard shown below',
@@ -233,153 +230,76 @@ const modules: CourseModule[] = [
     },
   },
   {
-    id: 'module-3',
-    order: 'Module 3',
-    title: 'Insight Generation & Storytelling',
-    status: 'Critical',
-    duration: '30 minutes (3 x 10-minute tasks)',
-    focus: 'Canonical Power BI storytelling with fact-check loops and OWASP drills',
-    description:
-      'Ground narratives in canonical Power BI visuals while Copilot documents source references, runs OWASP hallucination drills, and drives quick numeric rebuilds in Excel or DuckDB.',
-    keySkills: [
-      'Capture chart titles, filters, and time windows before prompting Copilot for summaries',
-      'Use @workspace and #codebase tags so Copilot cites the correct visuals and evidence tables',
-      'Rebuild one KPI offline in Excel or DuckDB to verify numbers match the dashboard',
-      'Coach teams through OWASP LLM01/02 drills to harden hallucination detection',
-    ],
-    copilotSurfaces: ['Copilot Chat in VS Code'],
-    slashCommands: ['/explain', '/doc', '/tests', '@workspace powerbi_samples', '#codebase evidence_table.csv'],
-    contextCues: [
-      'Paste the chart title, filters, and time horizon into Copilot before requesting narratives',
-      'Use @workspace powerbi_samples to ground references in canonical visuals',
-      'Store numeric rebuild outputs in evidence_table.csv and cite it with #codebase during reviews',
-    ],
-    lab: {
-      name: 'Power BI Insight Sprint',
-      scenario:
-        'Transform the official Power BI Customer Profitability and Retail Analysis visuals into stakeholder-ready briefs with reproducible evidence.',
-      deliverables: [
-        'Three-paragraph executive briefing that cites chart titles, measures, and filters',
-        'Evidence table listing each claim, metric definition, filter, and source file',
-        'Numeric rebuild of one KPI in Excel or DuckDB stored beside the briefing',
-        'OWASP LLM01/02 drill notes summarizing hallucination risks and mitigations',
-        'Transparency note with an "AI-assisted" disclosure appended to exported briefs',
-      ],
-      prompts: [
-        'Context: /explain the stakeholder ask after pasting chart title, filters, and timeframe',
-        'Fact check: /doc the briefing outline while citing @workspace powerbi_samples screenshots',
-        'Challenge: Request a counter-narrative that surfaces conflicting trends or data quality risks',
-      ],
-      validation: [
-        'Rebuild one KPI in Excel or DuckDB and attach the calculations to the evidence table',
-        'Run an OWASP LLM Top-10 (LLM01/02) drill and document how hallucinations were detected',
-        'Peer review every assertion against metrics and filters before publishing the narrative',
-      ],
-    },
-    rubric: [
-      'Every claim ties to a metric ID, filter, and chart reference in the evidence table',
-      'Numeric rebuild of at least one KPI matches the dashboard and is stored in the repo',
-      'Tone and risk framing align to the target executive audience with documented approvals',
-    ],
-    metricsFocus: [
-      'Narrative review cycle time from draft to approval',
-      'Percentage of story assertions with documented citations',
-      'Hallucination incidents detected before stakeholder distribution',
-    ],
-    trackFit: ['Core Accelerator'],
-    assets: [
-      'Power BI sample pack housed under resources/powerbi_samples/',
-      'Insight Storytelling Playbook with audience-specific scaffolds',
-      'Evidence table template stored in module3_storytelling/',
-      'OWASP LLM Top-10 quick reference on the Resources page',
-    ],
-    readinessSignals: [
-      '□ Narrative cites chart titles, filters, and metric IDs for every assertion',
-      '□ Evidence table includes numeric rebuild output and reviewer initials',
-      '□ OWASP drill notes explain how hallucinations were spotted and neutralized',
-    ],
-    stretchIdeas: [
-      'Swap Power BI visuals for Tableau or Looker exports mid-lab to test agility',
-      'Introduce a metric discrepancy and have teams triage the conflict live',
-      'Record a 90-second video briefing using the Copilot-assisted script',
-    ],
-    content: {
-      readme: module3Readme,
-      files: [
-        { name: 'Briefing Template', content: module3Template },
-      ],
-    },
-  },
-  {
     id: 'module-4',
     order: 'Module 4',
-    title: 'Legacy Code Decomposition & Modernization',
+    title: 'Legacy Logic Analysis & Data Mapping',
     status: 'Critical',
     duration: '30 minutes (3 x 10-minute tasks)',
-    focus: 'Open Mainframe COBOL decomposition, parity testing, and ISO/IEC-aligned risk logs',
+    focus: 'Business logic discovery, data flow tracing, and analyst-ready modernization prep',
     description:
-      'Pair Copilot Chat, Copilot CLI, and Copilot PR Review to translate Open Mainframe COBOL samples into modern Python with golden dataset parity tests and governance-ready risk briefings.',
+      'Pair Copilot Chat with legacy artifacts to document business rules, map data movement, and assemble a data requirements package engineers can build from.',
     keySkills: [
-      'Use Copilot Chat to explain COBOL routines in business language aligned to stakeholder goals',
-      'Generate Python refactors and unit tests while referencing golden dataset inputs and outputs',
-      'Run parity tests and capture evidence before opening a modernization PR',
-      'Document risks, mitigations, and rollback plans using ISO/IEC 42001 terminology',
+      'Translate COBOL routines into plain-language business rules and decision points',
+      'Trace upstream/downstream data dependencies and record them in mapping templates',
+      'Capture assumptions, gaps, and owner follow-ups inside a data requirements package',
+      'Coordinate with partners to align modernization outcomes without writing the replacement code yourself',
     ],
-    copilotSurfaces: ['Copilot Chat in VS Code', 'Copilot CLI', 'Copilot PR Review on GitHub.com'],
-    slashCommands: ['/explain', '/tests', '#codebase cobol_src/interest-adjustment.cbl', '/fix', 'Ask Copilot about this diff'],
+    copilotSurfaces: ['Copilot Chat in VS Code', 'Copilot PR Review on GitHub.com'],
+    slashCommands: ['/explain', '#codebase cobol_src/interest-adjustment.cbl', '/doc', '@workspace module4_modernization/golden_dataset'],
     contextCues: [
       'Reference cobol_src/interest-adjustment.cbl with #codebase when prompting for walkthroughs',
-      'Point Copilot at golden_dataset/ to align parity checks and expected outputs',
-      'Map risk log entries to ISO/IEC terms: risk, mitigation, rollback, approvals',
+      'Point Copilot at module4_modernization/golden_dataset/ and legacy-cobol-jcl-sample/ to reason about data structures and job context',
+      'Store findings in the change-control log and data requirements template so engineers see analyst context',
     ],
     lab: {
-      name: 'COBOL to Python Modernization Lab',
+      name: 'Legacy Logic Discovery Lab',
       scenario:
-        'Start with the Open Mainframe Project interest-adjustment COBOL sample, modernize it into Python, and verify parity before merge.',
+        'Start with the Open Mainframe Project interest-adjustment COBOL sample, document the business logic, map data flow, and assemble a stakeholder-ready data requirements package.',
       deliverables: [
-        'Plain-language walkthrough of the COBOL routine covering inputs, outputs, and dependencies',
-        'Python module with unit tests stored under python_refactor/ and aligned to golden data',
-        'Parity test report comparing COBOL output to the new implementation',
-        'Risk and rollback brief referencing ISO/IEC 42001 governance language',
-        'Copilot PR Review summary captured in the change-control log',
+        'Plain-language walkthrough covering inputs, calculations, decision branches, and outputs',
+        'Data flow map that captures upstream/downstream systems, tables, and transformation notes',
+        'Data requirements package listing fields, quality rules, ownership, and open questions',
+        'Change-control log entries summarizing risks, mitigations, and stakeholder follow-ups',
+        'Optional Copilot PR Review summary highlighting analyst findings for engineering partners',
       ],
       prompts: [
-        'Discovery: /explain cobol_src/interest-adjustment.cbl with domain translation and risk notes',
-        'Modernize: Request Copilot to generate Python code and tests referencing #codebase golden_dataset/',
-        'Review: Ask Copilot about this diff to summarize behavioural deltas and highlight risks',
+        'Discovery: /explain cobol_src/interest-adjustment.cbl with an emphasis on business outcomes and hidden assumptions',
+        'Mapping: Ask Copilot to draft a data flow table referencing @workspace module4_modernization/golden_dataset/sample_transactions.csv',
+        'Documentation: Use /doc to build the data requirements package and call out risks plus SME questions',
       ],
       validation: [
-        'Run golden dataset parity tests and store results alongside the refactor',
-        'Execute Python unit tests locally or in Codespaces before requesting review',
-        'Capture Copilot PR Review summary plus reviewer decision inside the change-control log',
+        'Cross-check mapped fields against the golden dataset to ensure calculations align with expected outputs',
+        'Review assumptions and gaps with a peer or SME before finalizing the package',
+        'Ensure change-control log references risk ratings, mitigations, and approval status',
       ],
     },
     rubric: [
-      'Parity tests pass for all supplied golden datasets before merge',
-      'Plain-language walkthrough explains legacy logic without relying on code snippets',
-      'Risk log documents mitigation, rollback, and approvals using ISO/IEC framing',
+      'Business logic summary conveys decisions, inputs, and outputs without relying on code snippets',
+      'Data flow map traces dependencies, sources, and consumers with ownership identified',
+      'Data requirements package lists fields, quality rules, and outstanding questions with clear actions',
     ],
     metricsFocus: [
-      'Parity defects caught before production deployment',
-      'PR cycle time for modernization stories',
-      'Copilot suggestion acceptance rate across modernization tasks',
+      'Time-to-first-complete data requirements draft',
+      'Number of dependencies identified before engineering handoff',
+      'Parity or quality issues flagged from legacy analysis prior to modernization',
     ],
-    trackFit: ['Modernization Deep Dive'],
+    trackFit: ['Session 1 · Foundations & Legacy Discovery', 'Session 2 · Data Requirements & Governance'],
     assets: [
       'Open Mainframe COBOL sample under module4_modernization/cobol_src/',
+      'Analyst-ready COBOL + JCL repo template in legacy-cobol-jcl-sample/',
+      'Data flow and requirements templates in the accelerator package',
       'Change-control log template detailed below',
-      'Golden dataset parity harness in module4_modernization/golden_dataset/',
       'Legacy Modernization Field Guide with governance tips',
     ],
     readinessSignals: [
-      '□ COBOL walkthrough captures inputs, outputs, and dependencies in plain language',
-      '□ Python refactor passes parity tests and unit tests inside the repo',
-      '□ Risk log aligns to ISO/IEC language and references Copilot PR Review notes',
+      '□ Business logic walkthrough captures inputs, decision points, and outputs in plain language',
+      '□ Data flow map lists systems, tables, and handoffs with owners identified',
+      '□ Data requirements package highlights gaps, risks, and mitigation plans for partners',
     ],
     stretchIdeas: [
-      'Port a second COBOL job that touches external services and compare mitigation strategies',
-      'Invite engineering partners to join the Copilot PR Review debrief',
-      'Pilot the workflow on a real modernization backlog item after the lab',
+      'Interview a domain SME and incorporate their insights into the requirements package',
+      'Compare multiple COBOL jobs to spot shared dependencies and consolidation opportunities',
+      'Pilot the documentation flow on a live modernization backlog item after the lab',
     ],
     content: {
       readme: module4Readme,
@@ -395,7 +315,7 @@ const modules: CourseModule[] = [
     title: 'Governance & Accuracy Fundamentals',
     status: 'Core',
     duration: '30 minutes (3 x 10-minute tasks)',
-    focus: 'NIST-aligned governance, OWASP prompt-injection drills, and transparency practices',
+    focus: 'NIST-aligned governance, prompt-injection drills, and transparency practices',
     description:
       'Codify the accuracy operating model by mapping artifacts to NIST AI RMF and Generative AI Profile controls, running prompt-injection drills, and standardizing transparency notes.',
     keySkills: [
@@ -442,7 +362,7 @@ const modules: CourseModule[] = [
       'Hallucination incidents resolved before release',
       'Escalation packet turnaround time versus agreed SLAs',
     ],
-    trackFit: ['Core Accelerator', 'Modernization Deep Dive'],
+    trackFit: ['Session 2 · Data Requirements & Governance'],
     assets: [
       'Hallucination Response Playbook on the Governance page',
       'Standards crosswalk template mapping to NIST AI RMF and Generative AI Profile',
@@ -750,7 +670,7 @@ export default function ModulesPage() {
                 <RefreshCw className="w-4 h-4 text-[#FF930F]" /> Session 1 · Foundations & Storytelling
               </h3>
               <p>
-                75-minute live block made of seven 10-minute sprints: Module 1 prompt framing, DuckDB validation, SQLFluff fixes, then Module 3 visual grounding, narrative drafting, and evidence logging. Close with metrics + homework preview.
+                75-minute live block made of seven 10-minute sprints: Module 1 prompt framing, DuckDB validation, SQLFluff fixes, then Module 4 legacy logic readout, data flow mapping, and analyst evidence capture. Close with metrics + homework preview.
               </p>
             </div>
             <div className="border border-dashed border-[#FF930F]/40 rounded-lg p-4">
@@ -766,7 +686,7 @@ export default function ModulesPage() {
                 <Workflow className="w-4 h-4 text-[#FF930F]" /> Homework Circuit · 120 Minutes
               </h3>
               <p>
-                Four self-paced 30-minute sprints: prompt diagnostics, storytelling remix, modernization mini-refactor, and accuracy audit. Use them to reinforce modules or assign as catch-up work between cohorts.
+                Four self-paced 30-minute sprints: prompt diagnostics, legacy data mapping, data requirements package build, and accuracy audit. Use them to reinforce modules or assign as catch-up work between cohorts.
               </p>
             </div>
           </div>

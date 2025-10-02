@@ -4,7 +4,6 @@ import {
   BrainCircuit,
   CheckCircle2,
   ClipboardCheck,
-  FileBarChart2,
   GaugeCircle,
   Layers,
   LifeBuoy,
@@ -93,13 +92,13 @@ const learningObjectives = [
     icon: Workflow,
   },
   {
-    title: 'Deliver Trustworthy Narratives',
-    description: 'Turn dashboards into executive-ready stories backed by fact checks and audit notes.',
-    icon: FileBarChart2,
+    title: 'Map Legacy Data Flows',
+    description: 'Trace inputs, outputs, and dependencies so modernization partners work with complete requirements.',
+    icon: Network,
   },
   {
     title: 'Modernize Legacy Logic',
-    description: 'Translate COBOL and JCL into modern patterns with clear risk analysis and documentation.',
+    description: 'Translate COBOL and JCL into analyst-ready requirements with clear risk analysis and documentation.',
     icon: Layers,
   },
   {
@@ -121,10 +120,10 @@ const quickStartSteps = [
   },
   {
     title: 'Stage Practice Assets',
-    description: 'Explore the synthetic datasets, Power BI visuals, and COBOL snippets used across labs.',
+    description: 'Explore the synthetic datasets, COBOL snippets, and data mapping templates used across labs.',
     list: [
-      'Browse the Resources tab to preview datasets, visuals, and code samples',
-      'Download the dashboard preview pack if you want an offline copy',
+      'Browse the Resources tab to preview datasets, legacy samples, and templates',
+      'Download the COBOL reference and data flow templates for offline work',
       'Skim the modernization samples highlighted on the Modules page',
     ],
   },
@@ -142,10 +141,10 @@ const quickStartSteps = [
 const runbooks: Runbook[] = [
   {
     id: 'session-1',
-    name: 'Session 1 · Foundations & Storytelling',
+    name: 'Session 1 · Foundations & Legacy Discovery',
     duration: '75 minutes (7 x 10-minute tasks + flex)',
     summary:
-      'Launch with Module 1 prompt discipline and Module 3 storytelling accuracy using back-to-back 10-minute micro-sprints.',
+      'Focus on Module 1 prompt discipline then pivot into analyst-oriented Module 4 legacy discovery sprints.',
     modules: [
       {
         id: 'module-1',
@@ -156,12 +155,12 @@ const runbooks: Runbook[] = [
         focus: 'Frame prompts, validate SQL in DuckDB, and address SQLFluff findings with Copilot.',
       },
       {
-        id: 'module-3',
-        name: 'Module 3 · Insight Generation & Storytelling',
+        id: 'module-4',
+        name: 'Module 4 · Legacy Logic Analysis',
         time: '30 min (3 x 10)',
         surface: 'Copilot Chat in VS Code',
-        commands: ['/explain', '/doc', '@workspace powerbi_samples'],
-        focus: 'Ground visuals, draft cited narratives, and update the evidence table in real time.',
+        commands: ['/explain', '#codebase cobol_src/interest-adjustment.cbl', '/doc'],
+        focus: 'Deconstruct business rules, trace data flow, and capture analyst insights from legacy code.',
       },
     ],
     extras: [
@@ -192,19 +191,19 @@ const runbooks: Runbook[] = [
         detail: 'Use /fix to remediate lint feedback and capture revisions in the README trail.',
       },
       {
-        label: 'Module 3 · Visual grounding',
+        label: 'Module 4 · Legacy business logic readout',
         duration: '10 min',
-        detail: 'Paste chart filters, title, and window into chat before asking for narrative support.',
+        detail: 'Use /explain on #codebase cobol_src/interest-adjustment.cbl to capture roles, calculations, and decision points.',
       },
       {
-        label: 'Module 3 · Copilot narrative draft',
+        label: 'Module 4 · Data flow mapping',
         duration: '10 min',
-        detail: 'Use /doc to produce briefing paragraphs with citations to @workspace powerbi_samples.',
+        detail: 'Map inputs and outputs into the data-flow template and note upstream/downstream dependencies.',
       },
       {
-        label: 'Module 3 · Evidence table update',
+        label: 'Module 4 · Analyst evidence capture',
         duration: '10 min',
-        detail: 'Log KPI rebuild results in evidence_table.csv and assign reviewer initials.',
+        detail: 'Draft the initial data requirements outline with /doc and assign follow-up questions for SMEs.',
       },
       {
         label: 'Wrap & homework preview',
@@ -214,24 +213,24 @@ const runbooks: Runbook[] = [
     ],
     outcomes: [
       'Module 1 prompts, SQLFluff report, and validation log captured for later review.',
-      'Module 3 briefing drafted with citations, KPI rebuild screenshot, and reviewer notes.',
-      'Session metrics recorded (time-to-first-query, citation coverage, issues to monitor).',
+      'Module 4 discovery notes include business logic summaries, data flow mapping, and open questions.',
+      'Session metrics recorded (time-to-first-query, discovery completeness, issues to monitor).',
     ],
   },
   {
     id: 'session-2',
-    name: 'Session 2 · Modernization & Governance',
+    name: 'Session 2 · Data Requirements & Governance',
     duration: '75 minutes (7 x 10-minute tasks + flex)',
     summary:
-      'Shift to Module 4 modernization parity tests and Module 5 governance drills with the same 10-minute cadence.',
+      'Continue Module 4 analysis to produce a data requirements package, then close with Module 5 governance drills.',
     modules: [
       {
         id: 'module-4',
-        name: 'Module 4 · Legacy Code Decomposition & Modernization',
+        name: 'Module 4 · Data Requirements Delivery',
         time: '30 min (3 x 10)',
-        surface: 'Copilot Chat in VS Code + Copilot PR Review',
-        commands: ['/explain', '/tests', '#codebase cobol_src/interest-adjustment.cbl'],
-        focus: 'Explain COBOL logic, scaffold Python refactors, and prep parity harnesses.',
+        surface: 'Copilot Chat in VS Code',
+        commands: ['/doc', '#codebase cobol_src/interest-adjustment.cbl', '@workspace module4_modernization/golden_dataset'],
+        focus: 'Transform discovery insights into analyst-ready documentation and modernization handoff notes.',
       },
       {
         id: 'module-5',
@@ -252,22 +251,22 @@ const runbooks: Runbook[] = [
       {
         label: 'Re-entry & metric checkpoint',
         duration: '10 min',
-        detail: 'Review session-one metrics, assign modernization roles, and set parity targets.',
+        detail: 'Review session-one metrics, assign modernization roles, and set analyst deliverable targets.',
       },
       {
-        label: 'Module 4 · COBOL walkthrough',
+        label: 'Module 4 · Stakeholder alignment interview',
         duration: '10 min',
-        detail: 'Use /explain on #codebase cobol_src/interest-adjustment.cbl to produce a plain-language summary.',
+        detail: 'Draft follow-up questions for SMEs and log assumptions in the change-control log.',
       },
       {
-        label: 'Module 4 · Python scaffold',
+        label: 'Module 4 · Data requirements package build',
         duration: '10 min',
-        detail: 'Generate Python structure and tests, noting assumptions in the change-control log.',
+        detail: 'Use /doc to convert mapping notes into the requirements template and tag data owners.',
       },
       {
-        label: 'Module 4 · Golden dataset parity',
+        label: 'Module 4 · Modernization handoff briefing',
         duration: '10 min',
-        detail: 'Run parity checks against golden_dataset/ and capture diffs for the PR.',
+        detail: 'Summarize analyst perspective for engineering and operations, including risks and acceptance criteria.',
       },
       {
         label: 'Module 5 · Incident triage drill',
@@ -277,12 +276,12 @@ const runbooks: Runbook[] = [
       {
         label: 'Module 5 · NIST/ISO crosswalk',
         duration: '10 min',
-        detail: 'Map artifacts to the governance crosswalk and fill gaps with action items.',
+        detail: 'Map artifacts to the governance crosswalk and assign control owners.',
       },
       {
         label: 'Module 5 · Transparency & escalation',
         duration: '10 min',
-        detail: 'Draft transparency notes and escalation packets using /doc with evidence paths.',
+        detail: 'Draft transparency notes and escalation packets using /doc with evidence links.',
       },
       {
         label: 'Retro & next metrics',
@@ -291,9 +290,9 @@ const runbooks: Runbook[] = [
       },
     ],
     outcomes: [
-      'Module 4 parity tests pass with change-control log and Copilot PR summary drafted.',
+      'Module 4 data requirements package drafted with business logic summaries, data maps, and outstanding questions.',
       'Module 5 incident response documented with NIST/ISO crosswalk updates and transparency note.',
-      'Next-step metrics defined (parity defects, escalation turnaround, homework checkpoints).',
+      'Next-step metrics defined (parity gaps, data owner follow-ups, homework checkpoints).',
     ],
   },
 ];
@@ -318,7 +317,7 @@ const curriculumModules: CurriculumModule[] = [
     title: 'Module 2 · Automating Everyday Data Tasks',
     focus: 'Copilot CLI automation, dry-run governance, and PR review rituals',
     status: 'Optional',
-    time: '30 min optional (homework sprints)',
+    time: '30 min optional homework sprints',
     summary: 'Use Copilot CLI to scaffold the weekly margin refresh with logging, then rely on Copilot PR Review to summarize diffs while secret scanning and OIDC guardrails stay active. Best tackled in homework sprints.',
     lab: 'Hands-on: Build the weekly refresh script, capture dry-run logs, and ship a Copilot-reviewed PR',
     outcomes: [
@@ -328,31 +327,17 @@ const curriculumModules: CurriculumModule[] = [
     ],
   },
   {
-    id: 'module-3',
-    title: 'Module 3 · Insight Generation & Storytelling',
-    focus: 'Canonical Power BI storytelling with fact-check loops and OWASP drills',
-    status: 'Critical',
-    time: '30 min live (3 x 10-minute tasks)',
-    summary: 'Anchor Copilot narratives in canonical Power BI visuals, cite metrics with @workspace prompts, and log OWASP hallucination drills before publish.',
-    lab: 'Hands-on: Craft a fact-checked briefing with evidence table and OWASP drill notes',
-    outcomes: [
-      'Paste chart metadata into Copilot to drive cited narratives',
-      'Rebuild one KPI in Excel or DuckDB and attach the calculations to the evidence table',
-      'Document hallucination mitigations and transparency notes before release',
-    ],
-  },
-  {
     id: 'module-4',
-    title: 'Module 4 · Legacy Code Decomposition & Modernization',
-    focus: 'Open Mainframe modernization with parity tests and PR governance',
+    title: 'Module 4 · Legacy Logic Analysis & Data Mapping',
+    focus: 'Business logic discovery, data flow tracing, and analyst-ready modernization prep',
     status: 'Critical',
     time: '30 min live (3 x 10-minute tasks)',
-    summary: 'Use Copilot Chat, Copilot CLI, and Copilot PR Review to translate Open Mainframe COBOL into Python with golden dataset parity and ISO/IEC risk logs.',
-    lab: 'Hands-on: Modernize COBOL with parity tests, Copilot PR review, and ISO/IEC risk briefings',
+    summary: 'Use Copilot to interpret COBOL, map data movement, and assemble a data requirements package that partners can build from.',
+    lab: 'Hands-on: Deconstruct legacy logic, map data flows, and draft a modernization-ready data requirements package',
     outcomes: [
-      'Explain COBOL inputs, outputs, and dependencies in plain language',
-      'Pass golden dataset parity tests and unit tests before requesting review',
-      'Capture Copilot PR Review summary and ISO/IEC-aligned risk and rollback notes',
+      'Explain COBOL inputs, decision points, and calculations in business language',
+      'Trace data lineage and dependencies into a data-flow mapping template',
+      'Compile a data requirements package with assumptions, gaps, and owner assignments',
     ],
   },
   {
@@ -383,14 +368,14 @@ const courseMaterials: CourseMaterial[] = [
   {
     key: 'module-kits',
     title: 'Module Launch Kits',
-    description: 'Prompt scaffolds, datasets, visuals, and modernization samples without leaving the site.',
+    description: 'Prompt scaffolds, datasets, legacy samples, and modernization templates without leaving the site.',
     to: '/resources',
     cta: 'Open Resources',
   },
   {
     key: 'homework',
     title: 'Post-Lab Homework',
-    description: 'Four 30-minute follow-ups (2 hours total) to extend prompting, storytelling, modernization, and governance.',
+    description: 'Four 30-minute follow-ups (2 hours total) to extend prompting, legacy analysis, modernization documentation, and governance.',
     to: '/homework',
     cta: 'View Assignments',
   },
@@ -406,10 +391,10 @@ const courseMaterials: CourseMaterial[] = [
 const supportHighlights: SupportHighlight[] = [
   {
     title: 'During the Lab',
-    description: 'Pull up the quick reference cards to debug prompts, scripts, and narrative drafts.',
+    description: 'Pull up the quick reference cards to debug prompts, map legacy data, and document governance evidence.',
     bullets: [
       'Start with the Prompt Clarity Blueprint to tighten intent',
-      'Use the Automation Review Scorecard before running scripts',
+      'Use the data mapping and requirements templates when analysing legacy logic',
       'Keep the Hallucination Response workflow nearby for escalations',
     ],
     to: '/resources',
@@ -460,7 +445,7 @@ export default function HomePage() {
             Build Core GenAI Skills for Analytical Teams
           </h2>
           <p className="text-sm sm:text-lg text-[#4b5a63] max-w-2xl mx-auto px-2">
-            Work through two 75-minute live sessions focused on core modules, then complete a 2-hour homework circuit to cement prompting, storytelling, modernization, and governance techniques.
+            Work through two 75-minute live sessions focused on prompt discipline and legacy analysis, then complete a 2-hour homework circuit to cement prompting, data requirements, modernization partnership, and governance techniques.
           </p>
         </div>
       </section>

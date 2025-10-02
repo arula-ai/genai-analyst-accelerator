@@ -1,6 +1,6 @@
 # Prompt Clarity Blueprint
 
-Design prompts that keep analytical work grounded in evidence. This blueprint powers Module 1 and Module 3 by giving analysts a repeatable framework for summarising datasets, generating SQL, and guiding narrative drafts.
+Design prompts that keep analytical work grounded in evidence. This blueprint powers Modules 1 and 4 by giving analysts a repeatable framework for summarising datasets, generating SQL, and guiding legacy discovery conversations.
 
 ---
 

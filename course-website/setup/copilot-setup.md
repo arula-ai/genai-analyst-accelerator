@@ -383,7 +383,6 @@ Setup complete? Here's what to do next:
 
 2. ✅ **Choose your learning path**
    - [Module 1: Prompt Engineering Essentials](../module-1-prompt-engineering/README.md)
-   - [Module 3: Insight Generation & Storytelling](../module-3-insight-storytelling/README.md)
    - [Module 4: Legacy Modernization & Risk](../module-4-legacy-modernization/README.md)
    - [Module 5: Governance & Accuracy](../module-5-governance/README.md)
 
