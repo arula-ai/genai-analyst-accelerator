@@ -1,73 +1,32 @@
-# React + TypeScript + Vite
+# GenAI Analyst Accelerator Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This Vite + React site hosts the GenAI Analyst Accelerator curriculum. It includes:
 
-Currently, two official plugins are available:
+- Updated navigation for the five core modules (prompting, automation, storytelling, modernization, governance)
+- Embedded markdown resources for prompts, playbooks, and governance artifacts
+- Homework assignments that reinforce each module after the live lab
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Local Development
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
-
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
-
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+npm install
+npm run dev
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+The router uses the `/copilot-analyst-lab-john` basename for GitHub Pages. Update `BrowserRouter` and `vite.config.ts` if you deploy to a different path.
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## Project Structure
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
 ```
+src/
+  pages/
+    HomePage.tsx         # Program overview and quick-start checklist
+    ModulesPage.tsx      # Deep dives for Modules 1–5
+    ResourcesPage.tsx    # Markdown reference library
+    HomeworkPage.tsx     # Post-lab assignments
+    GovernancePage.tsx   # Accuracy & escalation guidance
+resources/               # Playbooks, datasets, templates
+homework/                # Homework markdown packs
+```
+
+All data used in the curriculum is synthetic. Replace contents inside `resources/` and `governance/` with org-specific assets before running a live cohort.

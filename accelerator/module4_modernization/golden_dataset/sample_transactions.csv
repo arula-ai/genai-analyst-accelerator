@@ -1,0 +1,3 @@
+account_id,principal,standard_rate,promo_rate,days_outstanding,expected_interest
+A123,1000.00,0.06,0.02,30,10.96
+B456,2500.00,0.055,0.015,45,48.44

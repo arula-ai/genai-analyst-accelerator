@@ -1,0 +1,3 @@
+claim,metric_id,measure,filters,source_file,reviewer
+"Retention improved 3 pts vs prior quarter","M3-RET-01","Average churn delta","Region = North America; Product = Premium","powerbi_samples/customer_profitability.png","LL"
+"Store traffic dipped 5% where promotion paused","M3-RET-04","Footfall variance","Store Type = Outlet; Week = 2024-W18","powerbi_samples/retail_analysis.png","MS"

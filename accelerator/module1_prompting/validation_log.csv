@@ -1,0 +1,3 @@
+query_name,prompt_used,row_count,explain_plan_path,lint_status,reviewer,notes
+baseline_sales,"/explain dataset scope; @workspace data_dictionary.md","12345","notebooks/baseline_sales_explain.txt","pass","JD","Validated against DuckDB count(*)"
+category_growth,"/tests generate checks for monthly change","5678","notebooks/category_growth_explain.txt","needs_fix","MS","Fix window frame per SQLFluff message"

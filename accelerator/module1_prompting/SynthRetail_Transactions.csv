@@ -1,0 +1,4 @@
+transaction_id,account_id,transaction_ts,channel,amount,segment,product,risk_flag
+T-1001,ACC-0001,2023-07-01T13:05:00Z,Digital,125.65,Retention Starter,Debit Card,false
+T-1002,ACC-0002,2023-07-02T09:42:00Z,Branch,240.10,Growth Prime,Auto Loan,false
+T-1003,ACC-0003,2023-07-02T18:15:00Z,Mobile,-35.00,Retention Starter,Fee Reversal,true
