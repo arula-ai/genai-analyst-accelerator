@@ -81,7 +81,7 @@ Deliverable readiness: empty templates created and synced to repo/SharePoint.
 ## Task 4 · Governance & Handoff (10 minutes)
 **Purpose:** Package evidence and tee up backlog work without writing code.
 
-1. Update change-control log (`accelerator/module4_modernization/logs/change-control-log.md`):
+1. Update change-control log (`modules/module-4-legacy-modernization/logs/change-control-log.md`):
    - Risks uncovered (short codes, unknown RSK meanings).  
    - Mitigations (SME validation, parity testing plan).  
    - Approvals required (e.g., compliance for risk codes, operations for batch windows).

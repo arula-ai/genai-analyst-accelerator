@@ -1,0 +1,9 @@
+           05 TRADE-ACCOUNT-ID      PIC X(12).
+           05 TRADE-SYMBOL          PIC X(10).
+           05 TRADE-ID              PIC X(16).
+           05 TRADE-SIDE            PIC X.
+           05 TRADE-QUANTITY        PIC S9(9).
+           05 TRADE-PRICE           PIC S9(7)V99.
+           05 TRADE-EXEC-DATE       PIC 9(8).
+           05 TRADE-EXCHANGE        PIC X(6).
+           05 TRADE-BROKER          PIC X(8).

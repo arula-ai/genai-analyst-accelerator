@@ -4,7 +4,7 @@ Launch the accelerator in GitHub Codespaces or any devcontainer-compatible IDE t
 
 ## Preinstalled Tooling
 - **Python 3.11** with `pipx` and common data packages (pandas, duckdb, sqlfluff, pytest).
-- **DuckDB CLI** plus a seeded warehouse stub under `accelerator/module1_prompting/` for offline SQL validation.
+- **DuckDB CLI** plus a seeded warehouse stub under `modules/module-1-prompt-engineering/` for offline SQL validation.
 - **JupyterLab** for exploratory notebooks and KPI rebuilds.
 - **SQLFluff** configured with the house style and wired into pre-commit + GitHub Actions.
 - **GitHub CLI** with Copilot CLI enabled so you can run `copilot suggest`, `copilot explain`, and `copilot tests` from the terminal.
@@ -17,9 +17,9 @@ Launch the accelerator in GitHub Codespaces or any devcontainer-compatible IDE t
 5. Run `sqlfluff lint` before committing to catch formatting drift locally.
 
 ## Data & Validation Paths
-- DuckDB databases live under `accelerator/module1_prompting/notebooks/` and can be copied per cohort.
-- Golden datasets for modernization labs live in `accelerator/module4_modernization/golden_dataset/`.
-- Accuracy evidence (registers, hallucination reports) default to `accelerator/module5_governance/`.
+- DuckDB databases live under `modules/module-1-prompt-engineering/notebooks/` and can be copied per cohort.
+- Golden datasets for modernization labs live in `modules/module-4-legacy-modernization/golden_dataset/`.
+- Accuracy evidence (registers, hallucination reports) default to `modules/module-5-governance/`.
 
 ## Automation Hooks
 - `pre-commit` installs automatically and runs SQLFluff, black, and basic safety checks.

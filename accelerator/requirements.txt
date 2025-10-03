@@ -1,4 +1,0 @@
-duckdb==1.1.1
-sqlfluff==3.0.7
-pandas==2.2.3
-pytest==8.3.4

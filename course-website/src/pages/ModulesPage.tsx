@@ -32,7 +32,6 @@ import module2Scorecard from '@content/modules/module-2-automation/scorecards/au
 
 import module4Readme from '@content/modules/module-4-legacy-modernization/README.md?raw';
 import module4ChangeLog from '@content/modules/module-4-legacy-modernization/templates/change-control-log.md?raw';
-import module4Cobol from '@content/modules/module-4-legacy-modernization/legacy/interest-adjustment.cbl?raw';
 import businessLogicSummaryTemplate from '@content/resources/templates/business-logic-summary.md?raw';
 import dataFlowMapTemplate from '@content/resources/templates/data-flow-map.md?raw';
 import smeQuestionLogTemplate from '@content/resources/templates/sme-question-log.md?raw';
@@ -209,7 +208,7 @@ const modules: CourseModule[] = [
     description:
       'Build a weekly margin refresh script with Copilot CLI, keep changes auditable through dry-run logs, and lean on Copilot PR Review to summarize diffs while secret scanning and OIDC keep credentials safe.',
     actionSteps: [
-      'Open accelerator/module2_automation/weekly_margin, margin_spec.md, and the sample dry-run workflow to align on requirements.',
+      'Open modules/module-2-automation/weekly_margin, margin_spec.md, and the sample dry-run workflow to align on requirements.',
       'Run `copilot suggest` referencing @workspace margin_spec.md to scaffold the weekly refresh script with config inputs, logging, and a `--dry-run` flag.',
       'Use `copilot explain` to inspect the diff, refining prompts until retries include guardrails for secrets, retries, and error handling.',
       'Execute `copilot tests --dry-run` and save the console output as the dry-run evidence log.',
@@ -227,7 +226,7 @@ const modules: CourseModule[] = [
     copilotSurfaces: ['Copilot CLI', 'Copilot PR Review on GitHub.com', 'Copilot Chat in VS Code'],
     slashCommands: ['copilot suggest', 'copilot explain', 'copilot tests --dry-run', '/summary', '/fix'],
     contextCues: [
-      'Work inside accelerator/module2_automation/weekly_margin and reference margin_spec.md with @workspace',
+      'Work inside modules/module-2-automation/weekly_margin and reference margin_spec.md with @workspace',
       'Call #codebase ci/dry-run-workflow.yml when prompting for automation guardrails',
       'Highlight secret scanning and push protection requirements in every Copilot prompt',
     ],
@@ -372,7 +371,6 @@ const modules: CourseModule[] = [
     content: {
       readme: module4Readme,
       files: [
-        { name: 'COBOL Source Example (interest-adjustment.cbl)', content: module4Cobol },
         { name: 'Business-Logic Summary Template', content: businessLogicSummaryTemplate },
         { name: 'Data & Batch Flow Map Template', content: dataFlowMapTemplate },
         { name: 'SME Question Log Template', content: smeQuestionLogTemplate },

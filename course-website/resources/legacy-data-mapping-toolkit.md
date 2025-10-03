@@ -4,7 +4,7 @@ Use these prompts and templates to translate COBOL routines into analyst-ready d
 
 ## Key Artefacts
 - `legacy-cobol-jcl-sample/` — Stand-alone repo template analysts can clone for Module 4 labs.
-- `accelerator/module4_modernization/data-mapping/` — Workspace for storing discovery notes, flow diagrams, and requirements drafts.
+- `modules/module-4-legacy-modernization/data-mapping/` — Workspace for storing discovery notes, flow diagrams, and requirements drafts.
 - `course-website/homework/legacy-data-mapping.md` — Homework brief that guides the 30-minute mapping sprint.
 
 ## Suggested Prompts
