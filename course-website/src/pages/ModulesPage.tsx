@@ -43,6 +43,8 @@ import module5Readme from '@content/modules/module-5-governance/README.md?raw';
 import module5Template from '@content/modules/module-5-governance/templates/hallucination-report.md?raw';
 import module5Register from '@content/modules/module-5-governance/registers/accuracy-register.csv?raw';
 
+type ActionStep = string | { text: string; notes?: string[]; example?: string };
+
 type CourseModule = {
   id: string;
   order: string;
@@ -68,7 +70,7 @@ type CourseModule = {
   assets: string[];
   readinessSignals: string[];
   stretchIdeas: string[];
-  actionSteps?: string[];
+  actionSteps?: ActionStep[];
   content: {
     readme: string;
     files: Array<{ name: string; content: string }>;
@@ -83,69 +85,100 @@ const modules: CourseModule[] = [
     title: 'Prompt Engineering Essentials',
     status: 'Core',
     duration: '30 minutes (3 x 10-minute tasks)',
-    focus: 'Copilot prompt scaffolds, DuckDB validation, and SQL linting discipline',
+    focus: 'Copilot prompt scaffolds, grounded SQL validation, and linting discipline inside approved analytics environments',
     description:
-      'Within 30 minutes, teams restate analytical requirements with Copilot Chat, ground SQL in metadata via @workspace, and verify outputs locally in DuckDB with SQLFluff enforcing lint gates.',
+      'Within 30 minutes, teams restate analytical requirements with Copilot Chat, ground SQL in metadata via @workspace, and verify outputs inside their approved analytics sandbox with existing lint or review guardrails keeping standards tight.',
     actionSteps: [
-      'Open the SynthRetail data_dictionary.md, validation_log.csv, and your local DuckDB workspace to confirm DuckDB tooling and SQLFluff are ready.',
-      'Draft the stakeholder briefing prompt in Copilot Chat referencing @workspace data_dictionary.md and clarifying audience, constraints, and validation expectations.',
-      'Generate the first SQL query with Copilot, run SQLFluff on the diff, and prompt for fixes until lint errors clear.',
-      'Execute the query in DuckDB, capture row counts and an EXPLAIN screenshot, and log anomalies or edge cases.',
-      'Record findings in validation_log.csv with reviewer initials, then repeat the prompt → lint → execute loop for the remaining queries.',
-      'Store DuckDB outputs, explain artifacts, and lint status alongside the SQL files for evidence.',
-      'Document one prompt conversation in the module README showing the initial ask, Copilot revisions, and final accepted answer.',
+      'Open the SynthRetail data_dictionary.md, validation_log.csv, and your approved analytics workspace to confirm connections, permissions, and formatting guardrails are ready.',
+      {
+        text: 'Draft the stakeholder briefing prompt in Copilot Chat referencing @workspace data_dictionary.md and clarifying audience, constraints, and validation expectations.',
+        notes: [
+          'Use the five-part frame: role, inputs, guardrails, format, and validation (see Prompt Clarity Blueprint).',
+          'Reference real artifacts with @workspace (e.g., data_dictionary.md, validation_log.csv) so Copilot stays grounded.',
+          'Define the briefing structure (two sentences + hypotheses/questions) and name the audience/tone the output must match.',
+          'Include the checks you’ll run (row counts, bias scan, questions log) and remind Copilot to stay in approved sandboxes with synthetic data only.',
+        ],
+        example: `**Prompt example**
+
+**Role & intent**: You are a senior operations analyst preparing a two-sentence staffing briefing for call-center leaders about the Northwind_SupportLogs.csv dataset.
+
+**Inputs**:
+- Dataset: @workspace operations/northwind/SupportLogs.csv (one row per support ticket)
+- Metadata: @workspace operations/northwind/support_dictionary.md
+- Recent change log: Weekend escalation pilot launched in week 18.
+
+**Constraints & guardrails**:
+- Use only synthetic ticket IDs; no production systems or PII references.
+- Flag any coverage bias introduced by the weekend pilot or missing regions.
+- Keep the tone frontline-ops ready, actionable, and concise.
+
+**Format required**:
+1. **What We Know** – 2 sentences covering ticket volume, backlog trend, and known data gaps.
+2. **Where to Investigate** – 3 bullet hypotheses tied to queue or region metrics.
+3. **Questions** – bullets for unclear definitions or validations needed.
+4. **Next Step** – 1 sentence action item for call-center leads.
+
+**Validation plan**:
+- Cross-check ticket counts against the latest entry in @workspace operations/northwind/validation_log.csv.
+- If any metric can’t be confirmed or a pilot region is missing, answer with “RETRY NEEDED” and list it in Questions.`,
+      },
+      'Generate the first SQL query with Copilot, then run your team’s formatting or lint workflow (built-in formatter, Copilot /fix, peer checklist) until it meets standards.',
+      'Execute the query in your analytics studio, capture row counts and an execution plan screenshot or text export, and log anomalies or edge cases.',
+      'Record findings in validation_log.csv with reviewer initials, then repeat the prompt → review → execute loop for the remaining queries.',
+      'Store query outputs, execution evidence, and lint/format status alongside the SQL files for auditability.',
+      'Document one prompt conversation in the module README showing the initial ask, Copilot revisions, reviewer feedback (if any), and final accepted answer.',
     ],
     keySkills: [
       'Translate stakeholder asks into Copilot-ready prompts that list roles, inputs, constraints, and validation expectations',
       'Leverage @workspace and #codebase tags to keep SQL grounded in the SynthRetail data dictionary and validation log',
-      'Use DuckDB to execute and profile queries offline while capturing explain plans for audit trails',
-      'Automate linting and remediation with SQLFluff pre-commit hooks and Copilot-driven fixes',
+      'Use existing analytics environments to execute and profile queries while capturing explain plans or execution traces for audit trails',
+      'Automate linting and remediation with your organization’s formatting guardrails, peer review rituals, and Copilot-driven fixes',
     ],
     copilotSurfaces: ['Copilot Chat in VS Code'],
     slashCommands: ['/explain', '@workspace data_dictionary.md', '/tests', '/fix'],
     contextCues: [
       'Reference data_dictionary.md with @workspace before Copilot drafts SQL so table names, joins, and filters stay accurate',
       'Call #codebase notebooks/validation_log.csv to reuse prior checks and document new ones',
-      'Remind the cohort that DuckDB in the sanctioned local sandbox is the only approved engine - never aim prompts at production endpoints',
+      'Remind the cohort to stay inside approved analytics sandboxes or studio connections—never point prompts or scripts at production systems',
     ],
     lab: {
       name: 'Dataset Briefing & SQL Quality Lab',
       scenario:
-        'Use the SynthRetail_Transactions.csv metadata inside DuckDB to brief stakeholders and co-author SQL that lint cleanly before execution.',
+        'Use the SynthRetail_Transactions.csv metadata inside your approved analytics workspace to brief stakeholders and co-author SQL that meets formatting and validation standards before execution.',
       deliverables: [
         'Two-sentence dataset briefing with explicit constraints, bias flags, and target stakeholders',
-        'Three SQL queries saved to the repo alongside DuckDB EXPLAIN screenshots',
+        'Three SQL queries saved to the repo alongside execution-plan screenshots or text exports from your analytics studio',
         'Validation log capturing row counts, window edge cases, and reviewer initials',
-        'SQLFluff report (pass or fail) stored from the pre-commit hook and GitHub Action run',
+        'Formatting or review evidence (lint pass, Copilot /fix confirmation, or peer sign-off) stored with the queries',
         'Copilot chat extract in README that shows prompt -> response -> revision for one query',
       ],
       prompts: [
         'Kickoff: /explain the analyst brief, @workspace data_dictionary.md, and flag the never-hit-prod rule',
         'Drafting: Ask Copilot Chat to propose SQL while pointing at #codebase notebooks/validation_log.csv for prior checks',
-        'Audit: Run /tests to generate DuckDB validation statements and follow with /fix to remediate lint findings',
+        'Audit: Run /tests to generate validation statements and follow with /fix or your studio’s formatter to resolve issues before execution',
       ],
       validation: [
-        'Execute queries against DuckDB in the local sandbox and store row counts plus EXPLAIN output in validation_log.csv',
-        'Ensure SQLFluff passes locally and in CI before the lab is considered complete',
+        'Execute queries inside the approved analytics workspace and store row counts plus execution-plan details in validation_log.csv',
+        'Ensure formatting or lint checks pass (or peer review is complete) before the lab is considered complete',
         'Record bias or hallucination flags in the accuracy register with remediation notes',
       ],
     },
     rubric: [
       'Inputs, constraints, and bias checks documented before sending the first Copilot prompt',
-      'SQLFluff, DuckDB explain plans, and validation logs attached with traceable evidence',
+      'Execution plans, validation logs, and formatting/lint evidence attached with traceable references',
       'Copilot conversation extract highlights revisions and rationale for accepting the final SQL',
     ],
     metricsFocus: [
-      'Time-to-first-working-query inside DuckDB',
-      'SQLFluff pass rate for generated SQL drafts',
+      'Time-to-first-working-query inside the approved analytics workspace',
+      'Lint/format compliance rate for Copilot-generated SQL drafts',
       'Copilot suggestion acceptance rate for analytical SQL prompts',
     ],
     trackFit: ['Session 1 · Foundations & Legacy Discovery'],
     assets: [
       'Prompt scaffold walkthrough in the Prompt Clarity Blueprint',
       'SQL validation log template and example below',
-      'SQLFluff configuration and CI workflow linked on the Resources page',
-      'DuckDB local environment setup steps on the Setup page',
+      'SQL review checklist and formatting guidance linked on the Resources page',
+      'Analytics workspace setup guidance on the Setup page',
     ],
     readinessSignals: [
       '□ Prompts cite tables, filters, and constraints before Copilot executes',
@@ -242,7 +275,7 @@ const modules: CourseModule[] = [
       '□ Secret scanning evidence stored alongside the automation deliverables',
     ],
     stretchIdeas: [
-      'Connect the automation to a staging DuckDB database and compare results',
+      'Connect the automation to a staging analytics sandbox and compare results',
       'Layer business glossary tags to teach Copilot domain language in the CLI',
       'Simulate a secret leak and walk through the escalation and rollback workflow',
     ],
@@ -518,10 +551,29 @@ export default function ModulesPage() {
                     <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-semibold">
                       <ClipboardList className="w-4 h-4 text-[#FF930F]" /> Action Steps
                     </div>
-                    <ol className="list-decimal pl-5 space-y-2 text-sm text-slate-600 dark:text-slate-300">
-                      {module.actionSteps.map((step, idx) => (
-                        <li key={`${module.id}-step-${idx}`}>{step}</li>
-                      ))}
+                    <ol className="list-decimal pl-5 space-y-3 text-sm text-slate-600 dark:text-slate-300">
+                      {module.actionSteps.map((step, idx) => {
+                        const stepText = typeof step === 'string' ? step : step.text;
+                        const stepNotes = typeof step === 'string' ? undefined : step.notes;
+                        const stepExample = typeof step === 'string' ? undefined : step.example;
+                        return (
+                          <li key={`${module.id}-step-${idx}`} className="space-y-2">
+                            <div>{stepText}</div>
+                            {stepNotes?.length ? (
+                              <ul className="list-disc pl-5 space-y-1 text-[13px] text-slate-500 dark:text-slate-300/80">
+                                {stepNotes.map((note, noteIdx) => (
+                                  <li key={`${module.id}-step-${idx}-note-${noteIdx}`}>{note}</li>
+                                ))}
+                              </ul>
+                            ) : null}
+                            {stepExample ? (
+                              <div className="mt-2 text-[13px] text-slate-500 dark:text-slate-300/80">
+                                <MarkdownContent content={stepExample} />
+                              </div>
+                            ) : null}
+                          </li>
+                        );
+                      })}
                     </ol>
                   </div>
                 ) : null}
@@ -732,7 +784,7 @@ export default function ModulesPage() {
                 <RefreshCw className="w-4 h-4 text-[#FF930F]" /> Session 1 · Foundations & Storytelling
               </h3>
               <p>
-                75-minute live block made of seven 10-minute sprints: Module 1 prompt framing, DuckDB validation, SQLFluff fixes, then Module 4 legacy logic readout, data flow mapping, and analyst evidence capture. Close with metrics + homework preview.
+                75-minute live block made of seven 10-minute sprints: Module 1 prompt framing, query validation cycles with Copilot-driven fixes, then Module 4 legacy logic readout, data flow mapping, and analyst evidence capture. Close with metrics + homework preview.
               </p>
             </div>
             <div className="border border-dashed border-[#FF930F]/40 rounded-lg p-4">

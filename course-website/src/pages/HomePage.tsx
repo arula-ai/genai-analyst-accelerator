@@ -152,7 +152,7 @@ const runbooks: Runbook[] = [
         time: '30 min (3 x 10)',
         surface: 'Copilot Chat in VS Code',
         commands: ['/explain', '@workspace data_dictionary.md', '/tests'],
-        focus: 'Frame prompts, validate SQL in DuckDB, and address SQLFluff findings with Copilot.',
+        focus: 'Frame prompts, validate SQL in your approved analytics workspace, and address formatting feedback with Copilot.',
       },
       {
         id: 'module-4',
@@ -181,14 +181,14 @@ const runbooks: Runbook[] = [
         detail: 'Run /explain with @workspace data_dictionary.md to restate the analyst ask.',
       },
       {
-        label: 'Module 1 · DuckDB validation sprint',
+        label: 'Module 1 · query validation sprint',
         duration: '10 min',
-        detail: 'Execute /tests for validation queries and log counts in validation_log.csv.',
+        detail: 'Execute /tests for validation queries inside the approved analytics workspace and log counts in validation_log.csv.',
       },
       {
-        label: 'Module 1 · SQLFluff fix loop',
+        label: 'Module 1 · formatting fix loop',
         duration: '10 min',
-        detail: 'Use /fix to remediate lint feedback and capture revisions in the README trail.',
+        detail: 'Use /fix or your studio’s formatter to resolve feedback and capture revisions in the README trail.',
       },
       {
         label: 'Module 4 · Legacy business logic readout',
@@ -212,7 +212,7 @@ const runbooks: Runbook[] = [
       },
     ],
     outcomes: [
-      'Module 1 prompts, SQLFluff report, and validation log captured for later review.',
+      'Module 1 prompts, validation evidence, and review log captured for later review.',
       'Module 4 discovery notes include business logic summaries, data flow mapping, and open questions.',
       'Session metrics recorded (time-to-first-query, discovery completeness, issues to monitor).',
     ],
@@ -301,15 +301,15 @@ const curriculumModules: CurriculumModule[] = [
   {
     id: 'module-1',
     title: 'Module 1 · Prompt Engineering Essentials',
-    focus: 'Copilot prompt scaffolds, DuckDB validation, and SQLFluff discipline',
+    focus: 'Copilot prompt scaffolds, grounded SQL validation, and formatting discipline',
     status: 'Core',
     time: '30 min live (3 x 10-minute tasks)',
-    summary: 'Run Copilot Chat with /explain, @workspace data_dictionary.md, and /tests to produce DuckDB SQL that lint cleanly before execution.',
-    lab: 'Hands-on: Generate a dataset briefing, validated SQL, and SQLFluff evidence',
+    summary: 'Run Copilot Chat with /explain, @workspace data_dictionary.md, and /tests to produce SQL that meets standards inside your approved analytics workspace.',
+    lab: 'Hands-on: Generate a dataset briefing, validated SQL, and review evidence',
     outcomes: [
       'Restate problem constraints with Copilot before generating SQL',
-      'Validate every query in DuckDB and capture explain plans with row counts',
-      'Publish SQLFluff results and Copilot prompt -> revision trail in the repo',
+      'Validate every query in your approved analytics workspace and capture execution plans with row counts',
+      'Publish formatting or review results plus the Copilot prompt -> revision trail in the repo',
     ],
   },
   {

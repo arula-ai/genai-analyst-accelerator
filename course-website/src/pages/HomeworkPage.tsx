@@ -18,7 +18,7 @@ const assignments = [
     duration: '30 minutes (3 x 10)',
     icon: Sparkles,
     summary:
-      'Stress-test prompts on a new dataset with three 10-minute sprints: initial framing, bias remediation, and DuckDB validation plus SQLFluff wrap.',
+      'Stress-test prompts on a new dataset with three 10-minute sprints: initial framing, bias remediation, and analytics validation plus formatting wrap.',
     focus: ['Prompt teardown scorecard', 'Bias tagging workflow', 'SQL & summary validation grid'],
     content: promptDiagnostics,
   },

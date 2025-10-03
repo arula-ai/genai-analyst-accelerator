@@ -99,14 +99,14 @@ const resources = [
   },
   {
     id: 'devcontainer-quickstart',
-    title: 'Codespaces Devcontainer Guide (Optional)',
-    subtitle: 'Optional developer-track workspace with Python, DuckDB, SQLFluff, and Copilot CLI',
-    description: 'For teams running the developer accelerator track, launch GitHub Codespaces with every dependency preinstalled and governance hooks ready. Analyst track participants do not need this environment.',
+    title: 'Codespaces Workspace Guide (Optional)',
+    subtitle: 'Optional developer-track workspace with preinstalled analytics tooling and Copilot CLI',
+    description: 'For teams running the developer accelerator track, launch GitHub Codespaces with every dependency preconfigured and governance hooks ready. Analyst track participants do not need this environment.',
     icon: Server,
     accent: 'bg-[#E3FCEC] text-[#1E7B4D] dark:text-[#9BE3B3] dark:bg-[#123524]',
     keyTopics: [
-      'Toolchain coverage: Python, DuckDB, JupyterLab, SQLFluff, Copilot CLI',
-      'Running dry-run automation, parity tests, and linting inside the container',
+      'Toolchain coverage: analytics clients, testing harnesses, and Copilot helpers',
+      'Running dry-run automation, parity tests, and linting inside the workspace',
       'OIDC secrets, troubleshooting tips, and post-create automation',
     ],
     readTime: '6 min read',
@@ -241,7 +241,7 @@ const resources = [
     accent: 'bg-[#FFF4D6] text-[#B45309] dark:text-[#FFCD7A] dark:bg-[#3B2A14]',
     keyTopics: [
       'Speed metrics: time-to-first-working-query, Copilot acceptance rate, PR cycle time',
-      'Quality & safety: SQLFluff pass rate, parity defects, hallucination incidents',
+      'Quality & safety: SQL review compliance rate, parity defects, hallucination incidents',
       'Governance health: accuracy register completeness, secret scanning blocks avoided, escalation turnaround',
     ],
     readTime: '4 min read',
@@ -441,13 +441,18 @@ export default function ResourcesPage() {
               </a>
             </li>
             <li>
-              <a className="text-[#1D2E38] underline" href="https://duckdb.org/" target="_blank" rel="noreferrer">
-                DuckDB Documentation
+              <a className="text-[#1D2E38] underline" href="https://docs.oracle.com/en/database/oracle/sql-developer/index.html" target="_blank" rel="noreferrer">
+                Oracle SQL Developer Documentation
               </a>
             </li>
             <li>
-              <a className="text-[#1D2E38] underline" href="https://docs.sqlfluff.com/" target="_blank" rel="noreferrer">
-                SQLFluff Documentation
+              <a className="text-[#1D2E38] underline" href="https://learn.microsoft.com/sql/ssms/sql-server-management-studio-ssms" target="_blank" rel="noreferrer">
+                SQL Server Management Studio Guidance
+              </a>
+            </li>
+            <li>
+              <a className="text-[#1D2E38] underline" href="https://www.sqlstyle.guide/" target="_blank" rel="noreferrer">
+                SQL Style Guide (Community Reference)
               </a>
             </li>
             <li>
