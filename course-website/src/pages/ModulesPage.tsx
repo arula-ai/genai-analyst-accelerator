@@ -68,6 +68,7 @@ type CourseModule = {
   assets: string[];
   readinessSignals: string[];
   stretchIdeas: string[];
+  actionSteps?: string[];
   content: {
     readme: string;
     files: Array<{ name: string; content: string }>;
@@ -85,6 +86,15 @@ const modules: CourseModule[] = [
     focus: 'Copilot prompt scaffolds, DuckDB validation, and SQL linting discipline',
     description:
       'Within 30 minutes, teams restate analytical requirements with Copilot Chat, ground SQL in metadata via @workspace, and verify outputs locally in DuckDB with SQLFluff enforcing lint gates.',
+    actionSteps: [
+      'Open the SynthRetail data_dictionary.md, validation_log.csv, and your local DuckDB workspace to confirm DuckDB tooling and SQLFluff are ready.',
+      'Draft the stakeholder briefing prompt in Copilot Chat referencing @workspace data_dictionary.md and clarifying audience, constraints, and validation expectations.',
+      'Generate the first SQL query with Copilot, run SQLFluff on the diff, and prompt for fixes until lint errors clear.',
+      'Execute the query in DuckDB, capture row counts and an EXPLAIN screenshot, and log anomalies or edge cases.',
+      'Record findings in validation_log.csv with reviewer initials, then repeat the prompt → lint → execute loop for the remaining queries.',
+      'Store DuckDB outputs, explain artifacts, and lint status alongside the SQL files for evidence.',
+      'Document one prompt conversation in the module README showing the initial ask, Copilot revisions, and final accepted answer.',
+    ],
     keySkills: [
       'Translate stakeholder asks into Copilot-ready prompts that list roles, inputs, constraints, and validation expectations',
       'Leverage @workspace and #codebase tags to keep SQL grounded in the SynthRetail data dictionary and validation log',
@@ -96,7 +106,7 @@ const modules: CourseModule[] = [
     contextCues: [
       'Reference data_dictionary.md with @workspace before Copilot drafts SQL so table names, joins, and filters stay accurate',
       'Call #codebase notebooks/validation_log.csv to reuse prior checks and document new ones',
-      'Remind the cohort that DuckDB in the devcontainer is the only approved engine - never aim prompts at production endpoints',
+      'Remind the cohort that DuckDB in the sanctioned local sandbox is the only approved engine - never aim prompts at production endpoints',
     ],
     lab: {
       name: 'Dataset Briefing & SQL Quality Lab',
@@ -115,7 +125,7 @@ const modules: CourseModule[] = [
         'Audit: Run /tests to generate DuckDB validation statements and follow with /fix to remediate lint findings',
       ],
       validation: [
-        'Execute queries against DuckDB in the devcontainer and store row counts plus EXPLAIN output in validation_log.csv',
+        'Execute queries against DuckDB in the local sandbox and store row counts plus EXPLAIN output in validation_log.csv',
         'Ensure SQLFluff passes locally and in CI before the lab is considered complete',
         'Record bias or hallucination flags in the accuracy register with remediation notes',
       ],
@@ -135,7 +145,7 @@ const modules: CourseModule[] = [
       'Prompt scaffold walkthrough in the Prompt Clarity Blueprint',
       'SQL validation log template and example below',
       'SQLFluff configuration and CI workflow linked on the Resources page',
-      'DuckDB-ready devcontainer instructions on the Setup page',
+      'DuckDB local environment setup steps on the Setup page',
     ],
     readinessSignals: [
       '□ Prompts cite tables, filters, and constraints before Copilot executes',
@@ -165,6 +175,16 @@ const modules: CourseModule[] = [
     focus: 'Copilot CLI automation with governance guardrails and PR review rituals',
     description:
       'Build a weekly margin refresh script with Copilot CLI, keep changes auditable through dry-run logs, and lean on Copilot PR Review to summarize diffs while secret scanning and OIDC keep credentials safe.',
+    actionSteps: [
+      'Open accelerator/module2_automation/weekly_margin, margin_spec.md, and the sample dry-run workflow to align on requirements.',
+      'Run `copilot suggest` referencing @workspace margin_spec.md to scaffold the weekly refresh script with config inputs, logging, and a `--dry-run` flag.',
+      'Use `copilot explain` to inspect the diff, refining prompts until retries include guardrails for secrets, retries, and error handling.',
+      'Execute `copilot tests --dry-run` and save the console output as the dry-run evidence log.',
+      'Commit the script plus dry-run log, then open a pull request that links back to the spec and guardrail files.',
+      'Request Copilot PR Review, address the summary feedback, and capture the reviewer disposition inside the PR.',
+      'Validate secret scanning and push protection triggered (or are enforced) and store the screenshot or audit event in the module folder.',
+      'Use Copilot Chat to draft release notes referencing the dry-run result, guardrail evidence, and any follow-up tasks.',
+    ],
     keySkills: [
       'Scaffold Python or SQL automation via Copilot CLI with logging, dry-run flags, and configuration prompts',
       'Capture Copilot CLI edits and explanations before any code executes',
@@ -244,6 +264,15 @@ const modules: CourseModule[] = [
       'Reverse-engineer COBOL + JCL into plain-language business rules, map batch data flows, and assemble analyst-ready requirements packages—no refactoring required.',
     description:
       'Work through two analyst labs: first deconstruct the COBOL and JCL to explain business logic and batch orchestration, then synthesize the findings into a requirements package with SME questions, risks, and acceptance criteria for engineering intake.',
+    actionSteps: [
+      'Open legacy-cobol-jcl-sample/jcl/INTADJ01.jcl, the COBOL source, and the business-logic/data-flow templates side by side in VS Code.',
+      'Prompt Copilot with @workspace references to outline each JCL step, associated PROC or program, and the datasets it reads or writes.',
+      'Dive into interest-adjustment.cbl with Copilot to extract inputs, calculations, decision points, and edge cases in plain language.',
+      'Complete the business-logic summary template, citing COBOL sections and highlighting assumptions or missing context.',
+      'Map every JCL step to datasets, upstream/downstream consumers, and batch timing using the data-flow template.',
+      'Assemble the requirements package with acceptance criteria, compliance notes, and links to the logic summary and data-flow artifacts.',
+      'Log unresolved items in the SME question register and change-control log, then review the full packet with a peer for accuracy.',
+    ],
     keySkills: [
       'Translate COBOL routines into plain-language business rules and decision points',
       'Read JCL to map job steps, datasets, and upstream/downstream dependencies',
@@ -329,6 +358,15 @@ const modules: CourseModule[] = [
     focus: 'NIST-aligned governance, prompt-injection drills, and transparency practices',
     description:
       'Codify the accuracy operating model by mapping artifacts to NIST AI RMF and Generative AI Profile controls, running prompt-injection drills, and standardizing transparency notes.',
+    actionSteps: [
+      'Collect the flawed AI outputs, accuracy_register.csv, and hallucination report template before starting the triage.',
+      'Use Copilot /explain with #codebase accuracy_register.csv to diagnose the failure, capturing impact and suspected root cause.',
+      'Populate the hallucination report with severity, customer impact, mitigation owner, and deadlines for follow-up.',
+      'Update the accuracy register entry with confirmed root cause (prompt, data, or model) and link to supporting evidence.',
+      'Replay the prompt-injection or adversarial input, documenting how it was detected and neutralized in line with OWASP LLM01.',
+      'Build the NIST AI RMF and Generative AI Profile crosswalk matrix, mapping each artifact to the relevant control category.',
+      'Append the AI-assisted transparency note to the final briefing or incident packet and route the bundle for governance sign-off.',
+    ],
     keySkills: [
       'Design tiered validation plans and evidence capture across prompts, code, and narratives',
       'Detect and neutralize adversarial prompts using OWASP LLM01 tactics',
@@ -475,6 +513,19 @@ export default function ModulesPage() {
               </CardHeader>
 
               <CardContent className="space-y-8">
+                {module.actionSteps?.length ? (
+                  <div className="space-y-3">
+                    <div className="flex items-center gap-2 text-slate-700 dark:text-slate-200 font-semibold">
+                      <ClipboardList className="w-4 h-4 text-[#FF930F]" /> Action Steps
+                    </div>
+                    <ol className="list-decimal pl-5 space-y-2 text-sm text-slate-600 dark:text-slate-300">
+                      {module.actionSteps.map((step, idx) => (
+                        <li key={`${module.id}-step-${idx}`}>{step}</li>
+                      ))}
+                    </ol>
+                  </div>
+                ) : null}
+
                 <div className="grid gap-6 xl:grid-cols-2">
                   <div className="space-y-6">
                     <div className="space-y-3">
